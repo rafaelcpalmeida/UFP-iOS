@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var touch: UIImageView!
     @IBOutlet weak var userNumber: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var bgActivity: UIActivityIndicatorView!
+    
+    let apiController = APIController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +26,12 @@ class ViewController: UIViewController {
             self.touch.isHidden = true
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tapOutside: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        
-        view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tapOutside)
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,22 +68,37 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func enableButton(_ sender: UITextField) {
+    @IBAction func attemptLogin(_ sender: Any) {
         if (!(userNumber.text?.isEmpty)! && !(password.text?.isEmpty)!) {
-            loginButton.isEnabled = true
-        } else {
+            userNumber.isEnabled = false
+            password.isEnabled = false
             loginButton.isEnabled = false
+            
+            bgActivity.startAnimating()
+            
+            apiController.attemptLogin(userNumber: self.userNumber.text!, userPassword: self.password.text!) { (json, error) in
+                self.bgActivity.stopAnimating()
+                if(error == nil) {
+                    if(json["status"] == "Ok") {
+                        APICredentials.sharedInstance.apiToken = json["message"].string
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    } else {
+                        self.userNumber.isEnabled = true
+                        self.password.isEnabled = true
+                        self.loginButton.isEnabled = true
+                        let alert = UIAlertController(title: "Erro!", message: "Por favor verifique as suas credenciais de acesso.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
         }
-
     }
     
-    @IBAction func attemptLogin(_ sender: Any) {
-        if(self.userNumber.text == "26516" && self.password.text == "password") {
-            performSegue(withIdentifier: "loginSegue", sender: nil)
-        } else {
-            let alert = UIAlertController(title: "Erro!", message: "Por favor verifique as suas credenciais de acesso.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue" ,
+            let nextView = segue.destination as? HomeViewController {
+            nextView.str = "Olá " + self.userNumber.text!
         }
     }
     
@@ -90,4 +107,3 @@ class ViewController: UIViewController {
     }
 
 }
-
