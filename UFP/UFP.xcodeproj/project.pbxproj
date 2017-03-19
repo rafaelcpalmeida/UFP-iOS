@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		266FDBFD1E79C49200FDDE31 /* iPhoneVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266FDBFC1E79C49200FDDE31 /* iPhoneVersion.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		266FDBFC1E79C49200FDDE31 /* iPhoneVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneVersion.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				269D902C1E774CF000E1D26D /* AppDelegate.swift */,
-				266FDBFC1E79C49200FDDE31 /* iPhoneVersion.swift */,
 				26CDE8C81E7B573D0031B74B /* APICredentials.swift */,
 			);
 			name = Model;
@@ -210,7 +207,6 @@
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
-				266FDBFD1E79C49200FDDE31 /* iPhoneVersion.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +335,7 @@
 					"$(PROJECT_DIR)/UFP/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = UFP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +354,7 @@
 					"$(PROJECT_DIR)/UFP/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = UFP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";

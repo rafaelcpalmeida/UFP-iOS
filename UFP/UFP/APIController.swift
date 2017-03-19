@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class APIController {
-    private let baseURL = "https://8642b1a7.ngrok.io/api/v1/"
+    private let baseURL = "https://746e6c50.ngrok.io/api/v1/"
     
     public func attemptLogin(userNumber: String, userPassword: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["username": userNumber, "password": userPassword]
