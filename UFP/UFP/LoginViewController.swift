@@ -64,8 +64,8 @@ class LoginViewController: UIViewController {
             if self.view.frame.origin.y != 0 {
                 self.logo.isHidden = false
                 
-                if (!context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)) {
-                    self.touch.isHidden = true
+                if (context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)) {
+                    self.touch.isHidden = false
                 }
                 
                 self.view.frame.origin.y += keyboardSize.height
@@ -90,9 +90,10 @@ class LoginViewController: UIViewController {
                             APICredentials.sharedInstance.apiToken = json["message"].string
                             self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         } else {
-                            self.userNumber.isEnabled = true
-                            self.password.isEnabled = true
-                            self.loginButton.isEnabled = true
+                            self.userNumber.isHidden = false
+                            self.password.isHidden = false
+                            self.loginButton.isHidden = false
+                            self.touch.isHidden = false
                             let alert = UIAlertController(title: "Erro!", message: "Por favor verifique as suas credenciais de acesso.", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
@@ -117,11 +118,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func attemptLogin(_ sender: Any) {
         if (!(userNumber.text?.isEmpty)! && !(password.text?.isEmpty)!) {
-            userNumber.isEnabled = false
-            password.isEnabled = false
-            loginButton.isEnabled = false
-            
             bgActivity.startAnimating()
+            self.view.endEditing(true)
+            
+            self.userNumber.isHidden = true
+            self.password.isHidden = true
+            self.loginButton.isHidden = true
+            self.touch.isHidden = true
             
             apiController.attemptLogin(userNumber: self.userNumber.text!, userPassword: self.password.text!) { (json, error) in
                 self.bgActivity.stopAnimating()
@@ -130,9 +133,10 @@ class LoginViewController: UIViewController {
                         APICredentials.sharedInstance.apiToken = json["message"].string
                         self.performSegue(withIdentifier: "loginSegue", sender: nil)
                     } else {
-                        self.userNumber.isEnabled = true
-                        self.password.isEnabled = true
-                        self.loginButton.isEnabled = true
+                        self.userNumber.isHidden = false
+                        self.password.isHidden = false
+                        self.loginButton.isHidden = false
+                        self.touch.isHidden = false
                         let alert = UIAlertController(title: "Erro!", message: "Por favor verifique as suas credenciais de acesso.", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
