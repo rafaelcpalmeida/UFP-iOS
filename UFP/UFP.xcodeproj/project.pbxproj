@@ -12,6 +12,7 @@
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
 		269D90341E774CF000E1D26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 269D90331E774CF000E1D26D /* Assets.xcassets */; };
 		269D90371E774CF000E1D26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90351E774CF000E1D26D /* LaunchScreen.storyboard */; };
+		26C7EF581E805F29009E9894 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C7EF571E805F29009E9894 /* Keychain.swift */; };
 		26CDE8BC1E7B1ED30031B74B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */; };
 		26CDE8BD1E7B1ED30031B74B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26CDE8BE1E7B1ED30031B74B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */; };
@@ -44,6 +45,7 @@
 		269D90331E774CF000E1D26D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		269D90361E774CF000E1D26D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		269D90381E774CF000E1D26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26C7EF571E805F29009E9894 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		26CDE8B21E7B1C280031B74B /* UFP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UFP.entitlements; sourceTree = "<group>"; };
 		26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = UFP/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				26CDE8C11E7B200A0031B74B /* APIController.swift */,
 				26CDE8C61E7B3E5C0031B74B /* HomeViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
+				26C7EF571E805F29009E9894 /* Keychain.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
+				26C7EF581E805F29009E9894 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

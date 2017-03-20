@@ -9,8 +9,11 @@
 import Foundation
 
 class APICredentials {
+
     static var sharedInstance = APICredentials()
     private init() {}
-    
+
     var apiToken: String?
+
+
 }
