@@ -11,12 +11,13 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var homeLabel: UILabel!
-    public var str: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.homeLabel.text = str
+        self.homeLabel.text = APICredentials.sharedInstance.userNumber!
+        
+        print(APICredentials.sharedInstance.userNumber!)
         
         print(APICredentials.sharedInstance.apiToken!)
     }

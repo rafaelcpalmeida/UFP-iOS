@@ -24,8 +24,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (!context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)) {
+        if (!hasBiometricAuth() || KeychainService.loadUserNumber() == "" || KeychainService.loadUserPassword() == "") {
             self.touch.isHidden = true
+        }
+        
+        if(KeychainService.loadUserNumber() != "") {
+            self.userNumber.text = KeychainService.loadUserNumber() as String?
         }
         
         let tapOutside: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -37,6 +41,9 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //KeychainService.saveUserNumber(token: "")
+        //KeychainService.saveUserPassword(token: "")
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,11 +90,14 @@ class LoginViewController: UIViewController {
                     self.touch.isHidden = true
                     self.bgActivity.startAnimating()
                 }
-                self.apiController.attemptLogin(userNumber: "", userPassword: "") { (json, error) in
+                
+                let userNumber = KeychainService.loadUserNumber(), userPassword = KeychainService.loadUserPassword()
+                self.apiController.attemptLogin(userNumber: userNumber as! String, userPassword: userPassword as! String) { (json, error) in
                     self.bgActivity.stopAnimating()
                     if(error == nil) {
                         if(json["status"] == "Ok") {
                             APICredentials.sharedInstance.apiToken = json["message"].string
+                            APICredentials.sharedInstance.userNumber = KeychainService.loadUserNumber() as String?
                             self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         } else {
                             self.userNumber.isHidden = false
@@ -131,7 +141,24 @@ class LoginViewController: UIViewController {
                 if(error == nil) {
                     if(json["status"] == "Ok") {
                         APICredentials.sharedInstance.apiToken = json["message"].string
-                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        APICredentials.sharedInstance.userNumber = self.userNumber.text!
+                        if(self.hasBiometricAuth()) {
+                            let touchIDAlert = UIAlertController(title: "Autenticação com TouchID", message: "Pretende activar o TouchID para entrar na aplicação?", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                            touchIDAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
+                                KeychainService.saveUserNumber(token: self.userNumber.text! as NSString)
+                                KeychainService.saveUserPassword(token: self.password.text! as NSString)
+                                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                            }))
+                        
+                            touchIDAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: { (action: UIAlertAction!) in
+                                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                            }))
+                        
+                            self.present(touchIDAlert, animated: true, completion: nil)
+                        } else {
+                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        }
                     } else {
                         self.userNumber.isHidden = false
                         self.password.isHidden = false
@@ -147,10 +174,14 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSegue" ,
+        /*if segue.identifier == "loginSegue" ,
             let nextView = segue.destination as? HomeViewController {
             nextView.str = "Olá " + self.userNumber.text!
-        }
+        }*/
+    }
+    
+    private func hasBiometricAuth() -> Bool {
+        return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }
 
 }

@@ -14,6 +14,6 @@ class APICredentials {
     private init() {}
 
     var apiToken: String?
-
+    var userNumber: String?
 
 }

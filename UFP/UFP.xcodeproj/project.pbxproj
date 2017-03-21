@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		264882D21E8086460079F6B9 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 264882D11E8086460079F6B9 /* Preferences.plist */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		264882D11E8086460079F6B9 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				26CDE8B21E7B1C280031B74B /* UFP.entitlements */,
 				269D90331E774CF000E1D26D /* Assets.xcassets */,
 				269D90381E774CF000E1D26D /* Info.plist */,
+				264882D11E8086460079F6B9 /* Preferences.plist */,
 			);
 			path = UFP;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				269D90371E774CF000E1D26D /* LaunchScreen.storyboard in Resources */,
+				264882D21E8086460079F6B9 /* Preferences.plist in Resources */,
 				269D90341E774CF000E1D26D /* Assets.xcassets in Resources */,
 				269D90321E774CF000E1D26D /* Main.storyboard in Resources */,
 			);
