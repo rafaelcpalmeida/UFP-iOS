@@ -11,12 +11,13 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
-    public var schedule: String = ""
-    let apiController = APIController()
-    let tableCellIdentifier = "tableCell"
-    fileprivate weak var calendar: FSCalendar!
     @IBOutlet weak var viewCalendar: FSCalendar!
     @IBOutlet weak var scheduleTable: UITableView!
+    
+    let apiController = APIController()
+    let tableCellIdentifier = "tableCell"
+    
+    fileprivate weak var calendar: FSCalendar!
     
     var classes = [Class]()
     var jsonData = [String: JSON]()
@@ -36,6 +37,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.jsonData[key] = data
                 }
             }
+            
+            DispatchQueue.main.async(execute: {
+                self.scheduleTable.reloadData()
+                self.calendar.reloadData()
+            })
         })
         
         self.calendar = viewCalendar
@@ -81,13 +87,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.classes.removeAll()
         
-        for (_, dayClass) in self.jsonData[self.dateFormatter.string(from: date)]! {
-            self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+        if let json = self.jsonData[self.dateFormatter.string(from: date)] {
+            for (_, dayClass) in json {
+                self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+            }
         }
         
         DispatchQueue.main.async(execute: {
             self.scheduleTable.reloadData()
         })
     }
-
 }
