@@ -174,9 +174,7 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "loginSegue" ,
-            let nextView = segue.destination as? HomeViewController {
-            nextView.str = "Olá " + self.userNumber.text!
+        /*if segue.identifier == "loginSegue", let nextView = segue.destination as? HomeViewController {
         }*/
     }
     
