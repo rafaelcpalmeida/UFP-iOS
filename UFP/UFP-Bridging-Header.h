@@ -9,5 +9,6 @@
 #ifndef UFP_Bridging_Header_h
 #define UFP_Bridging_Header_h
 
+#import <FSCalendar/FSCalendar.h>
 
 #endif /* UFP_Bridging_Header_h */

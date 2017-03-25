@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		264882D21E8086460079F6B9 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 264882D11E8086460079F6B9 /* Preferences.plist */; };
+		266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; };
+		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -31,6 +34,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				26CDE8BD1E7B1ED30031B74B /* SwiftyJSON.framework in Embed Frameworks */,
+				266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */,
 				26CDE8BF1E7B1ED30031B74B /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -40,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		264882D11E8086460079F6B9 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
+		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
+		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
+		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CDE8BC1E7B1ED30031B74B /* SwiftyJSON.framework in Frameworks */,
+				266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */,
 				26CDE8BE1E7B1ED30031B74B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +80,8 @@
 		269D90201E774CF000E1D26D = {
 			isa = PBXGroup;
 			children = (
+				266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */,
+				266D12C51E869CD8006DFB9B /* FSCalendar.framework */,
 				26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */,
 				26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */,
 				269D902B1E774CF000E1D26D /* UFP */,
@@ -106,6 +116,7 @@
 			children = (
 				269D902C1E774CF000E1D26D /* AppDelegate.swift */,
 				26CDE8C81E7B573D0031B74B /* APICredentials.swift */,
+				266D12CC1E86EEA0006DFB9B /* Class.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 			files = (
 				26CDE8C71E7B3E5C0031B74B /* HomeViewController.swift in Sources */,
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
+				266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
@@ -337,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UFP/UFP.entitlements;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -356,6 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UFP/UFP.entitlements;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,6 +381,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
