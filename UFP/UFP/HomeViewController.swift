@@ -7,35 +7,87 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class HomeViewController: UIViewController {
-
-    @IBOutlet weak var homeLabel: UILabel!
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
     public var schedule: String = ""
     let apiController = APIController()
+    let tableCellIdentifier = "tableCell"
+    fileprivate weak var calendar: FSCalendar!
+    @IBOutlet weak var viewCalendar: FSCalendar!
+    @IBOutlet weak var scheduleTable: UITableView!
+    
+    var classes = [Class]()
+    var jsonData = [String: JSON]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.homeLabel.text = APICredentials.sharedInstance.userNumber!
-        
         //print(APICredentials.sharedInstance.userNumber!)
         //print(APICredentials.sharedInstance.apiToken!)
         
-        print (self.schedule)
+        scheduleTable.delegate = self
+        scheduleTable.dataSource = self
         
         apiController.getUserSchedule(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
             if(json["status"] == "Ok") {
-                print(json["message"])
+                for (key, data) in json["message"] {
+                    self.jsonData[key] = data
+                }
             }
         })
+        
+        self.calendar = viewCalendar
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return classes.count
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath)
+        
+        let data = classes[indexPath.row]
+        
+        cell.textLabel?.text = data.name
+        cell.detailTextLabel?.text = "Sala \(data.room) - \(data.startTime) às \(data.endTime)"
+        
+        return cell
+    }
+    
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        //let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
+        //print("selected dates is \(selectedDates)")
+        
+        if monthPosition == .next || monthPosition == .previous {
+            calendar.setCurrentPage(date, animated: true)
+        }
+        
+        self.classes.removeAll()
+        
+        for (_, dayClass) in self.jsonData[self.dateFormatter.string(from: date)]! {
+            self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+        }
+        
+        DispatchQueue.main.async(execute: {
+            self.scheduleTable.reloadData()
+        })
+    }
 
 }
