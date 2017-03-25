@@ -77,6 +77,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return formatter
     }()
     
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        if let json = self.jsonData[self.dateFormatter.string(from: date)] {
+            return json.count
+        }
+        return 0
+    }
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         //let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
         //print("selected dates is \(selectedDates)")
