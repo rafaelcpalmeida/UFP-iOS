@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>APIBaseURL</key>
-	<string>https://1899f96e.ngrok.io/api/v1/</string>
+	<string>https://api.joaquimmagalhaes.pt/api/v1/</string>
 	<key>cipherKey</key>
 	<string></string>
 </dict>
