@@ -257,17 +257,20 @@
                                     <constraint firstAttribute="width" secondItem="c2w-AH-5Te" secondAttribute="height" multiplier="73:86" id="pBj-DH-yBB"/>
                                 </constraints>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-Md-CFn">
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-Md-CFn">
                                 <rect key="frame" x="0.0" y="507" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nbw-g6-zKW"/>
                                     <barButtonItem style="plain" systemItem="action" id="iqK-RG-R5e">
                                         <color key="tintColor" red="0.1335871944" green="0.51550966379999996" blue="0.1035498623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="sharePaymentDetails:" destination="xqf-Ch-bBR" id="9u3-iG-RVe"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-4n-fji">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-4n-fji">
                                 <rect key="frame" x="40" y="282" width="240" height="165"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-4f-aew">
@@ -339,12 +342,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FLe-NT-yHV">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tph-4n-fji" firstAttribute="top" secondItem="17T-D4-eYW" secondAttribute="bottom" constant="41.5" id="6qR-V7-oNE"/>
                             <constraint firstItem="DTc-vx-KVx" firstAttribute="top" secondItem="17T-D4-eYW" secondAttribute="bottom" constant="74.5" id="8fR-jx-Jx5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="DTc-vx-KVx" secondAttribute="leading" id="FEq-Ya-kUc"/>
+                            <constraint firstItem="FLe-NT-yHV" firstAttribute="centerX" secondItem="QNb-Aw-5Nf" secondAttribute="centerX" id="Ghw-uk-rao"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DTc-vx-KVx" secondAttribute="trailing" id="KO8-Fw-NvL"/>
                             <constraint firstItem="Tph-4n-fji" firstAttribute="leading" secondItem="QNb-Aw-5Nf" secondAttribute="leadingMargin" constant="24" id="Mfr-Pt-o9y"/>
                             <constraint firstItem="17T-D4-eYW" firstAttribute="centerX" secondItem="QNb-Aw-5Nf" secondAttribute="centerX" id="PIQ-dq-hZ9"/>
@@ -353,9 +360,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Tph-4n-fji" secondAttribute="trailing" constant="24" id="cfs-bM-8rN"/>
                             <constraint firstItem="c2w-AH-5Te" firstAttribute="top" secondItem="6Wk-pg-5KY" secondAttribute="bottom" constant="30" id="eBT-Rl-GQ2"/>
                             <constraint firstItem="c2w-AH-5Te" firstAttribute="leading" secondItem="QNb-Aw-5Nf" secondAttribute="leadingMargin" constant="71" id="irO-f3-epJ"/>
+                            <constraint firstItem="FLe-NT-yHV" firstAttribute="centerY" secondItem="QNb-Aw-5Nf" secondAttribute="centerY" id="wvm-sa-X04"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="FLe-NT-yHV" id="rRi-zz-Yzx"/>
                         <outlet property="atmEntityLabel" destination="DTc-vx-KVx" id="Wxs-Vc-X5t"/>
                         <outlet property="atmPaymentDates" destination="qCl-Wc-K6x" id="re7-yF-pqK"/>
                         <outlet property="atmReferenceLabel" destination="ZE4-aJ-0mg" id="jCu-6O-U3X"/>

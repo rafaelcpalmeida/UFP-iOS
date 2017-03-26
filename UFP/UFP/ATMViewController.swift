@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ATMViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var noPaymentInfo: UILabel!
     @IBOutlet weak var paymentInfoView: UIView!
     @IBOutlet weak var paymentInfoToolbar: UIToolbar!
@@ -27,7 +28,10 @@ class ATMViewController: UIViewController {
         super.viewDidLoad()
         
         apiController.getUserPaymentDetails(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+            self.activityIndicator.stopAnimating()
             if(json["status"] == "Ok") {
+                self.paymentInfoToolbar.isHidden = false
+                self.paymentInfoView.isHidden = false
                 let atmDetails = json["message"]
                 self.atmEntityLabel.text = atmDetails["Entidade"].stringValue
                 self.atmReferenceLabel.text = atmDetails["Referencia"].stringValue
@@ -40,6 +44,17 @@ class ATMViewController: UIViewController {
             }
         })
         
+    }
+    
+    @IBAction func sharePaymentDetails(_ sender: Any) {
+        if let entity = self.atmEntityLabel.text, let reference = self.atmReferenceLabel.text, let value = self.atmValueLabel.text, let duration = self.atmPaymentDates.text {
+            let textToShare = [ "Universidade Fernando Pessoa - Dados para pagamento por Multibanco\n\n\nEntidade: \(entity)\nReferência: \(reference)\nValor: \(value)\n\n\(duration)" ]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            
+            activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+            
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
     
     fileprivate lazy var dateFormatter: DateFormatter = {
