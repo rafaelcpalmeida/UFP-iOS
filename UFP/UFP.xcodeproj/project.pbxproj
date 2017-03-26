@@ -11,6 +11,7 @@
 		266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; };
 		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
+		266D12D71E874FE4006DFB9B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D61E874FE4006DFB9B /* ScrollViewController.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -22,7 +23,7 @@
 		26CDE8BE1E7B1ED30031B74B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */; };
 		26CDE8BF1E7B1ED30031B74B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C11E7B200A0031B74B /* APIController.swift */; };
-		26CDE8C71E7B3E5C0031B74B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C61E7B3E5C0031B74B /* HomeViewController.swift */; };
+		26CDE8C71E7B3E5C0031B74B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */; };
 		26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C81E7B573D0031B74B /* APICredentials.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
 		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		266D12D61E874FE4006DFB9B /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = UFP/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		26CDE8C11E7B200A0031B74B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		26CDE8C61E7B3E5C0031B74B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		26CDE8C81E7B573D0031B74B /* APICredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,9 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				26CDE8C11E7B200A0031B74B /* APIController.swift */,
-				26CDE8C61E7B3E5C0031B74B /* HomeViewController.swift */,
+				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
 				26C7EF571E805F29009E9894 /* Keychain.swift */,
+				266D12D61E874FE4006DFB9B /* ScrollViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -221,9 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26CDE8C71E7B3E5C0031B74B /* HomeViewController.swift in Sources */,
+				26CDE8C71E7B3E5C0031B74B /* ScheduleViewController.swift in Sources */,
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
 				266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */,
+				266D12D71E874FE4006DFB9B /* ScrollViewController.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,

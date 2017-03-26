@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
+class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
     @IBOutlet weak var viewCalendar: FSCalendar!
     @IBOutlet weak var scheduleTable: UITableView!
