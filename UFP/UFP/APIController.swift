@@ -23,6 +23,12 @@ class APIController {
         
         makeRequest(url: "schedule", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    public func getUserPaymentDetails(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = ["token": token]
+        
+        makeRequest(url: "atm", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     private func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {

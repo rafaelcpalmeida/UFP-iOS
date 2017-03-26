@@ -12,6 +12,7 @@
 		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
 		266D12D71E874FE4006DFB9B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D61E874FE4006DFB9B /* ScrollViewController.swift */; };
+		266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D81E87F806006DFB9B /* ATMViewController.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
 		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		266D12D61E874FE4006DFB9B /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		266D12D81E87F806006DFB9B /* ATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMViewController.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				26CDE8C11E7B200A0031B74B /* APIController.swift */,
+				266D12D81E87F806006DFB9B /* ATMViewController.swift */,
 				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
 				26C7EF571E805F29009E9894 /* Keychain.swift */,
@@ -231,6 +234,7 @@
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
+				266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */,
 				26C7EF581E805F29009E9894 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

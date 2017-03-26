@@ -25,9 +25,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print(APICredentials.sharedInstance.userNumber!)
-        //print(APICredentials.sharedInstance.apiToken!)
-        
         scheduleTable.delegate = self
         scheduleTable.dataSource = self
         
@@ -84,10 +81,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         return 0
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        //let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
-        //print("selected dates is \(selectedDates)")
-        
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {        
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
         }
