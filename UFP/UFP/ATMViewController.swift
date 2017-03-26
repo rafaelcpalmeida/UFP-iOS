@@ -36,7 +36,7 @@ class ATMViewController: UIViewController {
                 self.atmEntityLabel.text = atmDetails["Entidade"].stringValue
                 self.atmReferenceLabel.text = atmDetails["Referencia"].stringValue
                 self.atmValueLabel.text = atmDetails["Total"].stringValue + "€"
-                self.atmPaymentDates.text = "Pagável entre \(self.dateFormatter.string(from: self.dateFormatterFromString.date(from: atmDetails["Inicio"].stringValue)!)) e \(self.dateFormatter.string(from: self.dateFormatterFromString.date(from: atmDetails["Termo"].stringValue)!))"
+                self.atmPaymentDates.text = "Pagável entre \(self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Inicio"].stringValue)!)) e \(self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Termo"].stringValue)!))"
             } else {
                 self.paymentInfoToolbar.isHidden = true
                 self.paymentInfoView.isHidden = true
@@ -63,7 +63,7 @@ class ATMViewController: UIViewController {
         return formatter
     }()
     
-    fileprivate lazy var dateFormatterFromString: DateFormatter = {
+    fileprivate lazy var dateFormatterToString: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
