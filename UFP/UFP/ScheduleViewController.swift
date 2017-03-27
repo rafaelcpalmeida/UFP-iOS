@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var viewCalendar: FSCalendar!
     @IBOutlet weak var scheduleTable: UITableView!
     
@@ -29,24 +30,29 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         scheduleTable.dataSource = self
         
         apiController.getUserSchedule(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+            self.activityIndicator.stopAnimating()
+            
             if(json["status"] == "Ok") {
                 for (key, data) in json["message"] {
                     self.jsonData[key] = data
                 }
-            }
-            
-            let todayDate = Date()
-            
-            if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
-                for (_, dayClass) in json {
-                    self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                
+                let todayDate = Date()
+                
+                if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
+                    for (_, dayClass) in json {
+                        self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                    }
                 }
+                
+                DispatchQueue.main.async(execute: {
+                    self.scheduleTable.reloadData()
+                    self.calendar.reloadData()
+                })
+                
+                self.viewCalendar.isHidden = false
+                self.scheduleTable.isHidden = false
             }
-            
-            DispatchQueue.main.async(execute: {
-                self.scheduleTable.reloadData()
-                self.calendar.reloadData()
-            })
         })
         
         self.calendar = viewCalendar

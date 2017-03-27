@@ -19,7 +19,7 @@ class ScrollViewController: UIViewController {
         
         let first = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "schedule")
         let second = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "atm")
-        let third = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "schedule")
+        let third = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "assiduity")
         
         self.addChildViewController(first)
         self.scrollView.addSubview(first.view)

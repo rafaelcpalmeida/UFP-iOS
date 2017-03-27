@@ -13,6 +13,8 @@
 		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
 		266D12D71E874FE4006DFB9B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D61E874FE4006DFB9B /* ScrollViewController.swift */; };
 		266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D81E87F806006DFB9B /* ATMViewController.swift */; };
+		266D12DF1E889874006DFB9B /* AssiduityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12DE1E889874006DFB9B /* AssiduityViewController.swift */; };
+		266D12E11E889DAB006DFB9B /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12E01E889DAB006DFB9B /* Subject.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		266D12D61E874FE4006DFB9B /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		266D12D81E87F806006DFB9B /* ATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMViewController.swift; sourceTree = "<group>"; };
+		266D12DE1E889874006DFB9B /* AssiduityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssiduityViewController.swift; sourceTree = "<group>"; };
+		266D12E01E889DAB006DFB9B /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				269D902C1E774CF000E1D26D /* AppDelegate.swift */,
 				26CDE8C81E7B573D0031B74B /* APICredentials.swift */,
 				266D12CC1E86EEA0006DFB9B /* Class.swift */,
+				266D12E01E889DAB006DFB9B /* Subject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -128,8 +133,8 @@
 		26CDE8C41E7B24920031B74B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				269D90301E774CF000E1D26D /* Main.storyboard */,
 				269D90351E774CF000E1D26D /* LaunchScreen.storyboard */,
+				269D90301E774CF000E1D26D /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,11 +143,12 @@
 			isa = PBXGroup;
 			children = (
 				26CDE8C11E7B200A0031B74B /* APIController.swift */,
+				266D12DE1E889874006DFB9B /* AssiduityViewController.swift */,
 				266D12D81E87F806006DFB9B /* ATMViewController.swift */,
-				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
-				26C7EF571E805F29009E9894 /* Keychain.swift */,
+				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
 				266D12D61E874FE4006DFB9B /* ScrollViewController.swift */,
+				26C7EF571E805F29009E9894 /* Keychain.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -228,10 +234,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CDE8C71E7B3E5C0031B74B /* ScheduleViewController.swift in Sources */,
+				266D12E11E889DAB006DFB9B /* Subject.swift in Sources */,
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
 				266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */,
 				266D12D71E874FE4006DFB9B /* ScrollViewController.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,
+				266D12DF1E889874006DFB9B /* AssiduityViewController.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
 				266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */,
