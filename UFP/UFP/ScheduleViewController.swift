@@ -14,6 +14,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var viewCalendar: FSCalendar!
     @IBOutlet weak var scheduleTable: UITableView!
+    @IBOutlet weak var noScheduleInfo: UILabel!
     
     let apiController = APIController()
     let tableCellIdentifier = "tableCell"
@@ -52,6 +53,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 self.viewCalendar.isHidden = false
                 self.scheduleTable.isHidden = false
+            } else {
+                self.noScheduleInfo.isHidden = false
             }
         })
         
