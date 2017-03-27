@@ -35,6 +35,14 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
             
+            let todayDate = Date()
+            
+            if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
+                for (_, dayClass) in json {
+                    self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                }
+            }
+            
             DispatchQueue.main.async(execute: {
                 self.scheduleTable.reloadData()
                 self.calendar.reloadData()
