@@ -10,5 +10,6 @@ import Foundation
 
 struct Subject {
     var name: String
-    var assiduity: Int
+    var assiduity: String
+    var type: String
 }

@@ -17,7 +17,6 @@ class AssiduityViewController: UIViewController, UITableViewDataSource, UITableV
     let apiController = APIController()
     let tableCellIdentifier = "tableCell"
     
-    var jsonData = [String: JSON]()
     var subjects = [Subject]()
     
     override func viewDidLoad() {
@@ -26,26 +25,17 @@ class AssiduityViewController: UIViewController, UITableViewDataSource, UITableV
         assiduityTable.delegate = self
         assiduityTable.dataSource = self
         
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.subjects.append(Subject(name: "Sistemas Operativos", assiduity: 89))
-        
-        self.activityIndicator.stopAnimating()
-        
-        self.assiduityTable.reloadData()
+        apiController.getUserAssiduityDetails(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+            self.activityIndicator.stopAnimating()
+            if(json["status"] == "Ok") {
+                for (_, data) in json["message"] {
+                    self.subjects.append(Subject(name: data["unidade"].stringValue, assiduity: data["assiduidade"].stringValue, type: data["tipo"].stringValue))
+                }
+            } else {
+            }
+            
+            self.assiduityTable.reloadData()
+        })
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,8 +51,30 @@ class AssiduityViewController: UIViewController, UITableViewDataSource, UITableV
         
         let data = subjects[indexPath.row]
         
-        cell.textLabel?.text = data.name
-        cell.detailTextLabel?.text = "\(data.assiduity)%"
+        if let assiduity = Int(data.assiduity) {
+            var color: UIColor
+            
+            switch assiduity {
+            case 0..<40:
+                color = UIColor.red
+            case 41..<70:
+                color = UIColor.orange
+            default:
+                color = UIColor(red: 0, green: 0.5373, blue: 0.0706, alpha: 1.0)
+            }
+            
+            let subjectAssiduity = NSAttributedString(string: data.assiduity, attributes: [NSForegroundColorAttributeName : color])
+            let subjectType = NSAttributedString(string: data.type + " - ", attributes: [NSForegroundColorAttributeName : UIColor.black])
+            let combination = NSMutableAttributedString()
+            
+            combination.append(subjectType)
+            combination.append(subjectAssiduity)
+            combination.append(NSAttributedString(string: "%"))
+            
+            cell.textLabel?.text = data.name
+            cell.detailTextLabel?.attributedText = combination
+        }
+        
         
         return cell
     }

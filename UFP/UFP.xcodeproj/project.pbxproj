@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261CB61C1E89CA000014DE75 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */; };
+		261CB61D1E89CA000014DE75 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		264882D21E8086460079F6B9 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 264882D11E8086460079F6B9 /* Preferences.plist */; };
 		266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; };
 		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,8 +23,6 @@
 		269D90341E774CF000E1D26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 269D90331E774CF000E1D26D /* Assets.xcassets */; };
 		269D90371E774CF000E1D26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90351E774CF000E1D26D /* LaunchScreen.storyboard */; };
 		26C7EF581E805F29009E9894 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C7EF571E805F29009E9894 /* Keychain.swift */; };
-		26CDE8BC1E7B1ED30031B74B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */; };
-		26CDE8BD1E7B1ED30031B74B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26CDE8BE1E7B1ED30031B74B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */; };
 		26CDE8BF1E7B1ED30031B74B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C11E7B200A0031B74B /* APIController.swift */; };
@@ -37,9 +37,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				26CDE8BD1E7B1ED30031B74B /* SwiftyJSON.framework in Embed Frameworks */,
 				266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */,
 				26CDE8BF1E7B1ED30031B74B /* Alamofire.framework in Embed Frameworks */,
+				261CB61D1E89CA000014DE75 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		264882D11E8086460079F6B9 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		26C7EF571E805F29009E9894 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		26CDE8B21E7B1C280031B74B /* UFP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UFP.entitlements; sourceTree = "<group>"; };
 		26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = UFP/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		26CDE8C11E7B200A0031B74B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		26CDE8C81E7B573D0031B74B /* APICredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentials.swift; sourceTree = "<group>"; };
@@ -76,9 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26CDE8BC1E7B1ED30031B74B /* SwiftyJSON.framework in Frameworks */,
 				266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */,
 				26CDE8BE1E7B1ED30031B74B /* Alamofire.framework in Frameworks */,
+				261CB61C1E89CA000014DE75 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */,
+				261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */,
 				266D12C51E869CD8006DFB9B /* FSCalendar.framework */,
-				26CDE8B51E7B1DD20031B74B /* SwiftyJSON.framework */,
 				26CDE8B31E7B1CEE0031B74B /* Alamofire.framework */,
 				269D902B1E774CF000E1D26D /* UFP */,
 				269D902A1E774CF000E1D26D /* Products */,
@@ -365,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UFP/UFP.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -374,8 +375,10 @@
 				INFOPLIST_FILE = UFP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UnivFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -386,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UFP/UFP.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -395,7 +399,7 @@
 				INFOPLIST_FILE = UFP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UFP;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.rafaelalmeida.UnivFP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

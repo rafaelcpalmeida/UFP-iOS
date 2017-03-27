@@ -29,6 +29,12 @@ class APIController {
         
         makeRequest(url: "atm", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    public func getUserAssiduityDetails(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = ["token": token]
+        
+        makeRequest(url: "assiduity", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     private func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {

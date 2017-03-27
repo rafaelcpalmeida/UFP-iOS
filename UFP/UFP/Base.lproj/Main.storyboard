@@ -181,7 +181,7 @@
                                     <outlet property="delegate" destination="g2S-bR-N7K" id="60h-zn-Nik"/>
                                 </connections>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-aQ-dZt">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-aQ-dZt">
                                 <rect key="frame" x="16" y="372" width="288" height="188"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -226,15 +226,24 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9EE-6I-ogG">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não foram encontradas informações relativas ao calendário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hlh-Ym-kSa">
+                                <rect key="frame" x="16" y="274" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="lDe-aQ-dZt" secondAttribute="trailing" id="G95-yI-iIz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hlh-Ym-kSa" secondAttribute="trailing" id="O4Z-Ow-Mzr"/>
                             <constraint firstItem="koq-kv-1h0" firstAttribute="top" secondItem="HDH-rG-f2B" secondAttribute="bottom" constant="62" id="Puc-9M-HY0"/>
                             <constraint firstItem="lDe-aQ-dZt" firstAttribute="top" secondItem="koq-kv-1h0" secondAttribute="bottom" constant="8" id="Pug-IF-O2O"/>
                             <constraint firstAttribute="leadingMargin" secondItem="koq-kv-1h0" secondAttribute="leading" id="R0b-pq-gIh"/>
+                            <constraint firstItem="Hlh-Ym-kSa" firstAttribute="centerY" secondItem="7s4-y8-f9a" secondAttribute="centerY" id="VxZ-SA-inI"/>
                             <constraint firstItem="9EE-6I-ogG" firstAttribute="centerY" secondItem="7s4-y8-f9a" secondAttribute="centerY" id="W3g-h1-UbC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="koq-kv-1h0" secondAttribute="trailing" id="aHH-CF-a8z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Hlh-Ym-kSa" secondAttribute="leading" id="cZS-z9-IDN"/>
                             <constraint firstItem="9EE-6I-ogG" firstAttribute="centerX" secondItem="7s4-y8-f9a" secondAttribute="centerX" id="icr-tR-fBj"/>
                             <constraint firstItem="RDa-dy-wie" firstAttribute="top" secondItem="lDe-aQ-dZt" secondAttribute="bottom" constant="8" id="vha-hf-uHP"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lDe-aQ-dZt" secondAttribute="leading" id="xMb-Zo-R4F"/>
@@ -242,6 +251,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="9EE-6I-ogG" id="Xqz-np-kUu"/>
+                        <outlet property="noScheduleInfo" destination="Hlh-Ym-kSa" id="UHq-1I-1vi"/>
                         <outlet property="scheduleTable" destination="lDe-aQ-dZt" id="4aw-1f-299"/>
                         <outlet property="viewCalendar" destination="koq-kv-1h0" id="ovA-Ow-tHw"/>
                     </connections>
@@ -435,7 +445,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-2r-v7Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-2r-v7Q">
                                 <rect key="frame" x="16" y="90" width="288" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -453,11 +463,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="88%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v5k-42-JRD">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v5k-42-JRD">
                                                     <rect key="frame" x="15" y="30" width="25" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="88%">
+                                                            <attributes>
+                                                                <font key="NSFont" metaFont="cellTitle"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
