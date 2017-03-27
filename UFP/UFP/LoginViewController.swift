@@ -92,7 +92,7 @@ class LoginViewController: UIViewController {
                 }
                 
                 let userNumber = KeychainService.loadUserNumber(), userPassword = KeychainService.loadUserPassword()
-                self.apiController.attemptLogin(userNumber: userNumber as! String, userPassword: userPassword as! String) { (json, error) in
+                self.apiController.attemptLogin(userNumber: userNumber! as String, userPassword: userPassword! as String) { (json, error) in
                     self.bgActivity.stopAnimating()
                     if(error == nil) {
                         if(json["status"] == "Ok") {
