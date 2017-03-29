@@ -12,37 +12,37 @@ import SwiftyJSON
 
 class APIController {
 
-    public func attemptLogin(userNumber: String, userPassword: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+    open func attemptLogin(_ userNumber: String, userPassword: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["username": userNumber, "password": userPassword]
         
-        makeRequest(url: "login", method: .post, params: params, completionHandler: completionHandler)
+        makeRequest("login", method: .post, params: params, completionHandler: completionHandler)
     }
 
-    public func getUserSchedule(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+    open func getUserSchedule(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["token": token]
         
-        makeRequest(url: "schedule", method: .get, params: params, completionHandler: completionHandler)
+        makeRequest("schedule", method: .get, params: params, completionHandler: completionHandler)
     }
     
-    public func getUserPaymentDetails(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+    open func getUserPaymentDetails(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["token": token]
         
-        makeRequest(url: "atm", method: .get, params: params, completionHandler: completionHandler)
+        makeRequest("atm", method: .get, params: params, completionHandler: completionHandler)
     }
     
-    public func getUserAssiduityDetails(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+    open func getUserAssiduityDetails(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["token": token]
         
-        makeRequest(url: "assiduity", method: .get, params: params, completionHandler: completionHandler)
+        makeRequest("assiduity", method: .get, params: params, completionHandler: completionHandler)
     }
     
-    public func getUserFinalGrades(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+    open func getUserFinalGrades(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["token": token]
         
-        makeRequest(url: "grades/final", method: .get, params: params, completionHandler: completionHandler)
+        makeRequest("grades/final", method: .get, params: params, completionHandler: completionHandler)
     }
 
-    private func getBaseURL() -> String {
+    fileprivate func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {
             if let dic = NSDictionary(contentsOfFile: path) as? [String: Any] {
                 return dic["APIBaseURL"] as! String
@@ -52,7 +52,7 @@ class APIController {
         return ""
     }
     
-    private func makeRequest(url: String, method: HTTPMethod, params: Parameters, completionHandler: @escaping (JSON, Error?) -> ()) {
+    fileprivate func makeRequest(_ url: String, method: HTTPMethod, params: Parameters, completionHandler: @escaping (JSON, Error?) -> ()) {
         if self.getBaseURL() != "" {
             Alamofire.request(self.getBaseURL() + url, method: method, parameters: params).validate().responseJSON { response in
                 switch response.result {

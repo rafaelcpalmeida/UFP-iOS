@@ -26,7 +26,7 @@ class FinalGradesViewController: UIViewController, UITableViewDataSource, UITabl
         gradesTable.delegate = self
         gradesTable.dataSource = self
         
-        apiController.getUserFinalGrades(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+        apiController.getUserFinalGrades(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
             self.activityIndicator.stopAnimating()
             if(json["status"] == "Ok") {
                 for (keyLevel, data) in json["message"] {

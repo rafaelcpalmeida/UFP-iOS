@@ -26,34 +26,34 @@ let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
 let kSecReturnDataValue = NSString(format: kSecReturnData)
 let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
 
-public class KeychainService: NSObject {
+open class KeychainService: NSObject {
 
     /**
      * Exposed methods to perform save and load queries.
      */
 
-    public class func saveUserNumber(token: NSString) {
-        self.save(service: userNumberKey as NSString, data: token)
+    open class func saveUserNumber(_ token: NSString) {
+        self.save(userNumberKey as NSString, data: token)
     }
 
-    public class func loadUserNumber() -> NSString? {
-        return self.load(service: userNumberKey as NSString)
+    open class func loadUserNumber() -> NSString? {
+        return self.load(userNumberKey as NSString)
     }
 
-    public class func saveUserPassword(token: NSString) {
-        self.save(service: userPasswordKey as NSString, data: token)
+    open class func saveUserPassword(_ token: NSString) {
+        self.save(userPasswordKey as NSString, data: token)
     }
 
-    public class func loadUserPassword() -> NSString? {
-        return self.load(service: userPasswordKey as NSString)
+    open class func loadUserPassword() -> NSString? {
+        return self.load(userPasswordKey as NSString)
     }
 
     /**
      * Internal methods for querying the keychain.
      */
 
-    private class func save(service: NSString, data: NSString) {
-        let dataFromString: NSData = data.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)! as NSData
+    fileprivate class func save(_ service: NSString, data: NSString) {
+        let dataFromString: Data = data.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)! as Data
 
         // Instantiate a new default keychain query
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, userAccount, dataFromString], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue])
@@ -65,7 +65,7 @@ public class KeychainService: NSObject {
         SecItemAdd(keychainQuery as CFDictionary, nil)
     }
 
-    private class func load(service: NSString) -> NSString? {
+    fileprivate class func load(_ service: NSString) -> NSString? {
         // Instantiate a new default keychain query
         // Tell the query to return a result
         // Limit our results to one item
@@ -78,7 +78,7 @@ public class KeychainService: NSObject {
         var contentsOfKeychain: NSString? = nil
 
         if status == errSecSuccess {
-            if let retrievedData = dataTypeRef as? NSData {
+            if let retrievedData = dataTypeRef as? Data {
                 contentsOfKeychain = NSString(data: retrievedData as Data, encoding: String.Encoding.utf8.rawValue)
             }
         } else {

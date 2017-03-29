@@ -27,7 +27,7 @@ class ATMViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiController.getUserPaymentDetails(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+        apiController.getUserPaymentDetails(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
             self.activityIndicator.stopAnimating()
             if(json["status"] == "Ok") {
                 self.paymentInfoToolbar.isHidden = false

@@ -30,7 +30,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         scheduleTable.delegate = self
         scheduleTable.dataSource = self
         
-        apiController.getUserSchedule(token: APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+        apiController.getUserSchedule(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
             self.activityIndicator.stopAnimating()
             
             if(json["status"] == "Ok") {
@@ -66,7 +66,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     

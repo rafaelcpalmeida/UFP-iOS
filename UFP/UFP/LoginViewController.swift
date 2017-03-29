@@ -92,7 +92,7 @@ class LoginViewController: UIViewController {
                 }
                 
                 let userNumber = KeychainService.loadUserNumber(), userPassword = KeychainService.loadUserPassword()
-                self.apiController.attemptLogin(userNumber: userNumber! as String, userPassword: userPassword! as String) { (json, error) in
+                self.apiController.attemptLogin(userNumber! as String, userPassword: userPassword! as String) { (json, error) in
                     self.bgActivity.stopAnimating()
                     if(error == nil) {
                         if(json["status"] == "Ok") {
@@ -136,7 +136,7 @@ class LoginViewController: UIViewController {
             self.loginButton.isHidden = true
             self.touch.isHidden = true
             
-            apiController.attemptLogin(userNumber: self.userNumber.text!, userPassword: self.password.text!) { (json, error) in
+            apiController.attemptLogin(self.userNumber.text!, userPassword: self.password.text!) { (json, error) in
                 self.bgActivity.stopAnimating()
                 if(error == nil) {
                     if(json["status"] == "Ok") {
@@ -146,8 +146,8 @@ class LoginViewController: UIViewController {
                             let touchIDAlert = UIAlertController(title: "Autenticação com TouchID", message: "Pretende activar o TouchID para entrar na aplicação?", preferredStyle: UIAlertControllerStyle.alert)
                         
                             touchIDAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
-                                KeychainService.saveUserNumber(token: self.userNumber.text! as NSString)
-                                KeychainService.saveUserPassword(token: self.password.text! as NSString)
+                                KeychainService.saveUserNumber(self.userNumber.text! as NSString)
+                                KeychainService.saveUserPassword(self.password.text! as NSString)
                                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
                             }))
                         

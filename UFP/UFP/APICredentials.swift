@@ -11,7 +11,7 @@ import Foundation
 class APICredentials {
 
     static var sharedInstance = APICredentials()
-    private init() {}
+    fileprivate init() {}
 
     var apiToken: String?
     var userNumber: String?
