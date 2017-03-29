@@ -15,27 +15,33 @@ class ScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: 1)
+        scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: 1)
         
-        let first = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "schedule")
-        let second = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "atm")
-        let third = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "assiduity")
+        let schedule = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "schedule")
+        let atm = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "atm")
+        let assiduity = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "assiduity")
+        let finalGrades = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "finalGrades")
         
-        self.addChildViewController(first)
-        self.scrollView.addSubview(first.view)
-        first.willMove(toParentViewController: self)
+        self.addChildViewController(schedule)
+        self.scrollView.addSubview(schedule.view)
+        schedule.willMove(toParentViewController: self)
         
-        self.addChildViewController(second)
-        self.scrollView.addSubview(second.view)
-        second.willMove(toParentViewController: self)
+        self.addChildViewController(atm)
+        self.scrollView.addSubview(atm.view)
+        atm.willMove(toParentViewController: self)
         
-        self.addChildViewController(third)
-        self.scrollView.addSubview(third.view)
-        third.willMove(toParentViewController: self)
+        self.addChildViewController(assiduity)
+        self.scrollView.addSubview(assiduity.view)
+        assiduity.willMove(toParentViewController: self)
         
-        first.view.frame.origin = CGPoint.zero
-        second.view.frame.origin = CGPoint(x: self.view.frame.width, y: 0)
-        third.view.frame.origin = CGPoint(x: self.view.frame.width * 2, y: 0)
+        self.addChildViewController(finalGrades)
+        self.scrollView.addSubview(finalGrades.view)
+        finalGrades.willMove(toParentViewController: self)
+        
+        schedule.view.frame.origin = CGPoint.zero
+        atm.view.frame.origin = CGPoint(x: self.view.frame.width, y: 0)
+        assiduity.view.frame.origin = CGPoint(x: self.view.frame.width * 2, y: 0)
+        finalGrades.view.frame.origin = CGPoint(x: self.view.frame.width * 3, y: 0)
         
         scrollView?.showsHorizontalScrollIndicator = false
     }

@@ -35,6 +35,12 @@ class APIController {
         
         makeRequest(url: "assiduity", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    public func getUserFinalGrades(token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = ["token": token]
+        
+        makeRequest(url: "grades/final", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     private func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {
