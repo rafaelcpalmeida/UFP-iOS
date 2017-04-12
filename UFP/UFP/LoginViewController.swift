@@ -173,11 +173,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "loginSegue", let nextView = segue.destination as? HomeViewController {
-        }*/
-    }
-    
     private func hasBiometricAuth() -> Bool {
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }
