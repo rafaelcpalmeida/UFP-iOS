@@ -18,7 +18,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         return [self.VCInstance(name: "schedule"),
                 self.VCInstance(name: "atm"),
                 self.VCInstance(name: "assiduity"),
-                self.VCInstance(name: "finalGrades")]
+                self.VCInstance(name: "finalGrades"),
+                self.VCInstance(name: "partialGrades")]
     }()
     
     private func VCInstance(name: String) -> UIViewController {
@@ -37,6 +38,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         
         self.pageControl.pageIndicatorTintColor = UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.0)
         self.pageControl.currentPageIndicatorTintColor = UIColor(red:0.34, green:0.62, blue:0.17, alpha:1.0)
+        self.pageControl.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 150)
     }
     
     override func viewDidLayoutSubviews() {
