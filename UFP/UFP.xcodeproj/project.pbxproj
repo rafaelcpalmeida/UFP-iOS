@@ -20,6 +20,7 @@
 		266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D81E87F806006DFB9B /* ATMViewController.swift */; };
 		266D12DF1E889874006DFB9B /* AssiduityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12DE1E889874006DFB9B /* AssiduityViewController.swift */; };
 		266D12E11E889DAB006DFB9B /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12E01E889DAB006DFB9B /* Subject.swift */; };
+		267B1D991E9EE95C00167116 /* DetailedPartialGradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B1D981E9EE95C00167116 /* DetailedPartialGradesViewController.swift */; };
 		269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902C1E774CF000E1D26D /* AppDelegate.swift */; };
 		269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D902E1E774CF000E1D26D /* LoginViewController.swift */; };
 		269D90321E774CF000E1D26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269D90301E774CF000E1D26D /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		266D12D81E87F806006DFB9B /* ATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMViewController.swift; sourceTree = "<group>"; };
 		266D12DE1E889874006DFB9B /* AssiduityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssiduityViewController.swift; sourceTree = "<group>"; };
 		266D12E01E889DAB006DFB9B /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		267B1D981E9EE95C00167116 /* DetailedPartialGradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPartialGradesViewController.swift; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				26CDE8C11E7B200A0031B74B /* APIController.swift */,
 				266D12DE1E889874006DFB9B /* AssiduityViewController.swift */,
 				266D12D81E87F806006DFB9B /* ATMViewController.swift */,
+				267B1D981E9EE95C00167116 /* DetailedPartialGradesViewController.swift */,
 				2611BB7F1E89DCA700F57F3A /* FinalGradesViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
 				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
@@ -248,6 +251,7 @@
 				26CDE8C71E7B3E5C0031B74B /* ScheduleViewController.swift in Sources */,
 				266D12E11E889DAB006DFB9B /* Subject.swift in Sources */,
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
+				267B1D991E9EE95C00167116 /* DetailedPartialGradesViewController.swift in Sources */,
 				266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */,
 				2611BB821E8B3A0700F57F3A /* FinalGrades.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,

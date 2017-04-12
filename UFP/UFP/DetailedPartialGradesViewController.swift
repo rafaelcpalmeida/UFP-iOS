@@ -9,9 +9,8 @@
 import UIKit
 import SwiftyJSON
 
-class PartialGradesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DetailedPartialGradesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var gradesTable: UITableView!
     
     let apiController = APIController()
@@ -27,7 +26,6 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
         gradesTable.dataSource = self
         
         apiController.getUserFinalGrades(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
-            self.activityIndicator.stopAnimating()
             if(json["status"] == "Ok") {
                 for (keyLevel, data) in json["message"] {
                     for (keyCourse, _) in data {
@@ -68,21 +66,12 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
         
         if let finalGradeDetails = self.finalGrades[headers[indexPath.section]]?[indexPath.row] {
             cell.textLabel?.text = finalGradeDetails.name
-            cell.detailTextLabel?.text = "Nota final - " + finalGradeDetails.grade
         }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showGrades", sender: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+    @IBAction func returnToPreviousView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "loginSegue", let nextView = segue.destination as? HomeViewController {
-         }*/
-    }
-    
 }
