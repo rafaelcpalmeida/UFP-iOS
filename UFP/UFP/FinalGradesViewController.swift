@@ -9,10 +9,17 @@
 import UIKit
 import SwiftyJSON
 
+class FinalGradesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var gradeLabel: UILabel!
+}
+
 class FinalGradesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var gradesTable: UITableView!
+    @IBOutlet weak var cellLabel: UILabel!
     
     let apiController = APIController()
     let tableCellIdentifier = "tableCell"
@@ -36,7 +43,6 @@ class FinalGradesViewController: UIViewController, UITableViewDataSource, UITabl
                         var grades = [FinalGrades]()
                         
                         for (_, value) in json["message"][keyLevel][keyCourse] {
-                            //self.grades.append([keyLevel + " - " + keyCourse: FinalGrades(name: value["unidade"].stringValue, grade: value["nota"].stringValue)])
                             grades.append(FinalGrades(name: value["unidade"].stringValue, grade: value["nota"].stringValue))
                         }
                         
@@ -55,6 +61,28 @@ class FinalGradesViewController: UIViewController, UITableViewDataSource, UITabl
         return headers.count
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        
+        view.backgroundColor = #colorLiteral(red: 0.3411764706, green: 0.6235294118, blue: 0.168627451, alpha: 1)
+        
+        let label = UILabel()
+        
+        label.text = headers[section]
+        
+        label.frame = CGRect(x: 5, y: 7, width: tableView.frame.width, height: 35)
+        
+        label.textColor = UIColor.white
+        
+        view.addSubview(label)
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.finalGrades[headers[section]]!.count
     }
@@ -64,11 +92,11 @@ class FinalGradesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath) as! FinalGradesTableViewCell
         
         if let finalGradeDetails = self.finalGrades[headers[indexPath.section]]?[indexPath.row] {
-            cell.textLabel?.text = finalGradeDetails.name
-            cell.detailTextLabel?.text = "Nota final - " + finalGradeDetails.grade
+            cell.subjectLabel.text = finalGradeDetails.name
+            cell.gradeLabel.text = finalGradeDetails.grade
         }
         
         return cell
