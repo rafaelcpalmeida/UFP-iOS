@@ -34,9 +34,10 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
                     self.headers.append(keyLevel)
                     
                     var grades = [PartialGrades]()
-                    var gradesAux = [String: String]()
                     
                     for (keyCourse, _) in data {
+                        var gradesAux = [String: String]()
+                        
                         for (_, value) in json["message"][keyLevel][keyCourse] {
                             gradesAux[value["elemento"].stringValue] = value["nota"].stringValue
                         }
