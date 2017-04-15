@@ -47,6 +47,8 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
                     
                     self.partialGrades[keyLevel] = grades
                 }
+                
+                self.headers = self.headers.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedDescending }
             } else {
             }
             
