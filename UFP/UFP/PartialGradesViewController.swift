@@ -18,7 +18,7 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
     let tableCellIdentifier = "tableCell"
     
     var headers = [String]()
-    var finalGrades = [String: [FinalGrades]]()
+    var partialGrades = [String: [PartialGrades]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +26,25 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
         gradesTable.delegate = self
         gradesTable.dataSource = self
         
-        apiController.getUserFinalGrades(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+        apiController.getUserPartialGrades(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
             self.activityIndicator.stopAnimating()
+            
             if(json["status"] == "Ok") {
                 for (keyLevel, data) in json["message"] {
+                    self.headers.append(keyLevel)
+                    
+                    var grades = [PartialGrades]()
+                    var gradesAux = [String: String]()
+                    
                     for (keyCourse, _) in data {
-                        self.headers.append(keyLevel + " - " + keyCourse)
-                        
-                        var grades = [FinalGrades]()
-                        
                         for (_, value) in json["message"][keyLevel][keyCourse] {
-                            //self.grades.append([keyLevel + " - " + keyCourse: FinalGrades(name: value["unidade"].stringValue, grade: value["nota"].stringValue)])
-                            grades.append(FinalGrades(name: value["unidade"].stringValue, grade: value["nota"].stringValue))
+                            gradesAux[value["elemento"].stringValue] = value["nota"].stringValue
                         }
                         
-                        self.finalGrades[keyLevel + " - " + keyCourse] = grades
+                        grades.append(PartialGrades(name: keyCourse, grades: gradesAux))
                     }
+                    
+                    self.partialGrades[keyLevel] = grades
                 }
             } else {
             }
@@ -55,8 +58,30 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
         return headers.count
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        
+        view.backgroundColor = #colorLiteral(red: 0.3411764706, green: 0.6235294118, blue: 0.168627451, alpha: 1)
+        
+        let label = UILabel()
+        
+        label.text = headers[section]
+        
+        label.frame = CGRect(x: 5, y: 7, width: tableView.frame.width, height: 35)
+        
+        label.textColor = UIColor.white
+        
+        view.addSubview(label)
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.finalGrades[headers[section]]!.count
+        return self.partialGrades[headers[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -66,9 +91,8 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath)
         
-        if let finalGradeDetails = self.finalGrades[headers[indexPath.section]]?[indexPath.row] {
+        if let finalGradeDetails = self.partialGrades[headers[indexPath.section]]?[indexPath.row] {
             cell.textLabel?.text = finalGradeDetails.name
-            cell.detailTextLabel?.text = "Nota final - " + finalGradeDetails.grade
         }
         
         return cell
@@ -81,8 +105,10 @@ class PartialGradesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "loginSegue", let nextView = segue.destination as? HomeViewController {
-         }*/
+        if let indexPath = gradesTable.indexPathForSelectedRow {
+            let detailVC = segue.destination as! DetailedPartialGradesViewController
+            detailVC.partialGrades = self.partialGrades[headers[indexPath.section]]?[indexPath.row]
+        }
     }
     
 }

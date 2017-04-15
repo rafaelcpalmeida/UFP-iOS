@@ -41,6 +41,12 @@ class APIController {
         
         makeRequest("grades/final", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    open func getUserPartialGrades(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = ["token": token]
+        
+        makeRequest("grades/detailed", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     fileprivate func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {
