@@ -60,7 +60,7 @@
 		261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		264882D11E8086460079F6B9 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		266700471EA29685008D3BD2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		266700491EA2969E008D3BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2667004B1EA2BCDA008D3BD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
 		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				266700471EA29685008D3BD2 /* pt-PT */,
-				266700491EA2969E008D3BD2 /* Base */,
+				2667004B1EA2BCDA008D3BD2 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
