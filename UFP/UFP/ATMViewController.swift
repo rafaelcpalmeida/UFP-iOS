@@ -36,7 +36,7 @@ class ATMViewController: UIViewController {
                 self.atmEntityLabel.text = atmDetails["Entidade"].stringValue
                 self.atmReferenceLabel.text = atmDetails["Referencia"].stringValue
                 self.atmValueLabel.text = atmDetails["Total"].stringValue + "€"
-                self.atmPaymentDates.text = "Pagável entre \(self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Inicio"].stringValue)!)) e \(self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Termo"].stringValue)!))"
+                self.atmPaymentDates.text = String(format: NSLocalizedString("Can be paid between %@ and %@", comment: ""), self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Inicio"].stringValue)!), self.dateFormatter.string(from: self.dateFormatterToString.date(from: atmDetails["Termo"].stringValue)!))
             } else {
                 self.paymentInfoToolbar.isHidden = true
                 self.paymentInfoView.isHidden = true
@@ -48,7 +48,7 @@ class ATMViewController: UIViewController {
     
     @IBAction func sharePaymentDetails(_ sender: Any) {
         if let entity = self.atmEntityLabel.text, let reference = self.atmReferenceLabel.text, let value = self.atmValueLabel.text, let duration = self.atmPaymentDates.text {
-            let textToShare = [ "Universidade Fernando Pessoa - Dados para pagamento por Multibanco\n\n\nEntidade: \(entity)\nReferência: \(reference)\nValor: \(value)\n\n\(duration)" ]
+            let textToShare = [ String(format: NSLocalizedString("University Fernando Pessoa - Multibanco payment details\n\n\nEntity: %@\nReference: %@\nValue: %@\n\n%@", comment: ""), entity, reference, value, duration) ]
             let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
             
             activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]

@@ -14,6 +14,7 @@
 		261CB61C1E89CA000014DE75 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */; };
 		261CB61D1E89CA000014DE75 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		264882D21E8086460079F6B9 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 264882D11E8086460079F6B9 /* Preferences.plist */; };
+		266700441EA29683008D3BD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266700461EA29683008D3BD2 /* Localizable.strings */; };
 		266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; };
 		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
@@ -58,6 +59,8 @@
 		2611BB851E8D786500F57F3A /* PartialGradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialGradesViewController.swift; sourceTree = "<group>"; };
 		261CB61B1E89CA000014DE75 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = UFP/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		264882D11E8086460079F6B9 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
+		266700471EA29685008D3BD2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		266700491EA2969E008D3BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
 		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 		266D12E01E889DAB006DFB9B /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		267B1D981E9EE95C00167116 /* DetailedPartialGradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPartialGradesViewController.swift; sourceTree = "<group>"; };
 		267B1D9C1EA17D8B00167116 /* PartialGrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialGrades.swift; sourceTree = "<group>"; };
+		267B1D9F1EA28D2200167116 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		267B1DA31EA28D7B00167116 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		269D90291E774CF000E1D26D /* UFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269D902C1E774CF000E1D26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269D902E1E774CF000E1D26D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 				26CDE8B21E7B1C280031B74B /* UFP.entitlements */,
 				269D90331E774CF000E1D26D /* Assets.xcassets */,
 				269D90381E774CF000E1D26D /* Info.plist */,
+				266700461EA29683008D3BD2 /* Localizable.strings */,
 				264882D11E8086460079F6B9 /* Preferences.plist */,
 			);
 			path = UFP;
@@ -219,6 +225,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-PT",
 			);
 			mainGroup = 269D90201E774CF000E1D26D;
 			productRefGroup = 269D902A1E774CF000E1D26D /* Products */;
@@ -237,6 +244,7 @@
 			files = (
 				269D90371E774CF000E1D26D /* LaunchScreen.storyboard in Resources */,
 				264882D21E8086460079F6B9 /* Preferences.plist in Resources */,
+				266700441EA29683008D3BD2 /* Localizable.strings in Resources */,
 				269D90341E774CF000E1D26D /* Assets.xcassets in Resources */,
 				269D90321E774CF000E1D26D /* Main.storyboard in Resources */,
 			);
@@ -271,10 +279,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		266700461EA29683008D3BD2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				266700471EA29685008D3BD2 /* pt-PT */,
+				266700491EA2969E008D3BD2 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		269D90301E774CF000E1D26D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				269D90311E774CF000E1D26D /* Base */,
+				267B1D9F1EA28D2200167116 /* pt-PT */,
+				267B1DA31EA28D7B00167116 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -294,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -343,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

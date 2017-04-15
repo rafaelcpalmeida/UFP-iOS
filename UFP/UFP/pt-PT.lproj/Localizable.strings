@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings.strings
+  UFP
+
+  Created by Rafael Almeida on 15/04/17.
+  Copyright © 2017 Rafael Almeida. All rights reserved.
+*/
+
+"Room %@ - from %@ to %@"="Sala %@ - %@ às %@";
+"Can be paid between %@ and %@"="Pagável entre %@ e %@";
+"University Fernando Pessoa - Multibanco payment details\n\n\nEntity: %@\nReference: %@\nValue: %@\n\n%@"="Universidade Fernando Pessoa - Dados para pagamento por Multibanco\n\n\nEntidade: %@\nReferência: %@\nValor: %@\n\n%@";

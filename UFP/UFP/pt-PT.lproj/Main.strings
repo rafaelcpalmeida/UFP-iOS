@@ -1,0 +1,84 @@
+
+/* Class = "UILabel"; text = "Pagamento por Multibanco"; ObjectID = "17T-D4-eYW"; */
+"17T-D4-eYW.text" = "Pagamento por Multibanco";
+
+/* Class = "UILabel"; text = "15"; ObjectID = "1EO-ks-rvE"; */
+"1EO-ks-rvE.text" = "15";
+
+/* Class = "UINavigationItem"; title = "Assiduidade"; ObjectID = "7zY-d6-skY"; */
+"7zY-d6-skY.title" = "Assiduidade";
+
+/* Class = "UIBarButtonItem"; title = "Anterior"; ObjectID = "86V-ki-HBN"; */
+"86V-ki-HBN.title" = "Anterior";
+
+/* Class = "UILabel"; text = "15"; ObjectID = "8RY-Fk-uiT"; */
+"8RY-Fk-uiT.text" = "15";
+
+/* Class = "UILabel"; text = "21497"; ObjectID = "Bai-iK-eEC"; */
+"Bai-iK-eEC.text" = "21497";
+
+/* Class = "UILabel"; text = "Sistemas Operativos"; ObjectID = "CCG-Kx-WKp"; */
+"CCG-Kx-WKp.text" = "Sistemas Operativos";
+
+/* Class = "UILabel"; text = "Não foram encontradas informações de pagamento."; ObjectID = "DTc-vx-KVx"; */
+"DTc-vx-KVx.text" = "Não foram encontradas informações de pagamento.";
+
+/* Class = "UILabel"; text = "Técnicas de Programação Estruturada para a Web"; ObjectID = "Eyd-yl-yD3"; */
+"Eyd-yl-yD3.text" = "Técnicas de Programação Estruturada para a Web";
+
+/* Class = "UILabel"; text = "Não foram encontradas informações relativas ao calendário."; ObjectID = "Hlh-Ym-kSa"; */
+"Hlh-Ym-kSa.text" = "Não foram encontradas informações relativas ao calendário.";
+
+/* Class = "UILabel"; text = "Sistemas Operativos"; ObjectID = "Ho4-O5-drJ"; */
+"Ho4-O5-drJ.text" = "Sistemas Operativos";
+
+/* Class = "UINavigationItem"; title = "Notas Finais"; ObjectID = "K1V-qR-P8d"; */
+"K1V-qR-P8d.title" = "Notas Finais";
+
+/* Class = "UILabel"; text = "Sistemas Operativos"; ObjectID = "X9w-Ph-J89"; */
+"X9w-Ph-J89.text" = "Sistemas Operativos";
+
+/* Class = "UILabel"; text = "202,53€"; ObjectID = "XBc-I2-qzI"; */
+"XBc-I2-qzI.text" = "202,53€";
+
+/* Class = "UILabel"; text = "017 287 998"; ObjectID = "ZE4-aJ-0mg"; */
+"ZE4-aJ-0mg.text" = "017 287 998";
+
+/* Class = "UILabel"; text = "Algoritmos e Estruturas de Dados II"; ObjectID = "czC-7W-2VB"; */
+"czC-7W-2VB.text" = "Algoritmos e Estruturas de Dados II";
+
+/* Class = "UILabel"; text = "Valor"; ObjectID = "eRX-dK-6De"; */
+"eRX-dK-6De.text" = "Valor";
+
+/* Class = "UINavigationItem"; title = "Calendário"; ObjectID = "gVh-uE-twV"; */
+"gVh-uE-twV.title" = "Calendário";
+
+/* Class = "UIButton"; normalTitle = "Entrar"; ObjectID = "jKa-Xi-3I1"; */
+"jKa-Xi-3I1.normalTitle" = "Entrar";
+
+/* Class = "UINavigationItem"; title = "Notas parciais"; ObjectID = "lDw-Ml-9bJ"; */
+"lDw-Ml-9bJ.title" = "Notas parciais";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "p9Z-CA-RIQ"; */
+"p9Z-CA-RIQ.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Pagável entre 14/02/2017 e 25/02/2017"; ObjectID = "qCl-Wc-K6x"; */
+"qCl-Wc-K6x.text" = "Pagável entre 14/02/2017 e 25/02/2017";
+
+/* Class = "UILabel"; text = "Entidade"; ObjectID = "roQ-4f-aew"; */
+"roQ-4f-aew.text" = "Entidade";
+
+/* Class = "UINavigationItem"; title = "Notas Parciais"; ObjectID = "rsV-7i-pLp"; */
+"rsV-7i-pLp.title" = "Notas Parciais";
+
+/* Class = "UILabel"; text = "Referência"; ObjectID = "tjg-SL-jQW"; */
+"tjg-SL-jQW.text" = "Referência";
+
+/* Class = "UITextField"; placeholder = "Número de aluno"; ObjectID = "uqi-eK-SF7"; */
+"uqi-eK-SF7.placeholder" = "Número de aluno";
+
+/* Class = "UINavigationItem"; title = "Dados de pagamento"; ObjectID = "vRo-XO-LSQ"; */
+"vRo-XO-LSQ.title" = "Dados de pagamento";
+
+/* Class = "UILabel"; text = "Sala 108 - 18:00 às 20:00"; ObjectID = "zUg-lu-kNY"; */
+"zUg-lu-kNY.text" = "Sala 108 - 18:00 às 20:00";

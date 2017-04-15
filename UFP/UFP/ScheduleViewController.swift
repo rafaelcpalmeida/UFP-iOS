@@ -80,7 +80,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let data = classes[indexPath.row]
         
         cell.textLabel?.text = data.name
-        cell.detailTextLabel?.text = "Sala \(data.room) - \(data.startTime) às \(data.endTime)"
+        cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@", comment: ""), data.room, data.startTime, data.endTime)
         
         return cell
     }
