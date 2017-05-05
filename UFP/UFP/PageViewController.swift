@@ -17,9 +17,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     lazy var VCArr: [UIViewController] = {
         return [self.VCInstance(name: "schedule"),
                 self.VCInstance(name: "atm"),
-                self.VCInstance(name: "assiduity"),
                 self.VCInstance(name: "finalGrades"),
-                self.VCInstance(name: "partialGrades")]
+                self.VCInstance(name: "partialGrades"),
+                self.VCInstance(name: "assiduity")]
     }()
     
     private func VCInstance(name: String) -> UIViewController {
