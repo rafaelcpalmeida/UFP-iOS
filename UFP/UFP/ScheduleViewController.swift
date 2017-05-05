@@ -46,6 +46,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                 }
                 
+                self.calendar.scrollDirection = FSCalendarScrollDirection.vertical
+                
                 DispatchQueue.main.async(execute: {
                     self.scheduleTable.reloadData()
                     self.calendar.reloadData()
@@ -98,7 +100,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         return 0
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {        
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
         }
