@@ -24,26 +24,25 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (!hasBiometricAuth() || KeychainService.loadUserNumber() == "" || KeychainService.loadUserPassword() == "") {
+        if (!hasBiometricAuth() || KeychainService.loadUserNumber() == nil || KeychainService.loadUserPassword() == nil) {
             self.touch.isHidden = true
         }
         
-        if(KeychainService.loadUserNumber() != "") {
+        if(KeychainService.loadUserNumber() != nil) {
             self.userNumber.text = KeychainService.loadUserNumber() as String?
         }
         
         let tapOutside: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tapOutside)
         
-        let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(loginWithTouchID(tapGestureRecognizer:)))
-        touch.isUserInteractionEnabled = true
-        touch.addGestureRecognizer(tapGestureRecognizer)
+        if(hasBiometricAuth()) {
+            let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(loginWithTouchID(tapGestureRecognizer:)))
+            touch.isUserInteractionEnabled = true
+            touch.addGestureRecognizer(tapGestureRecognizer)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        //KeychainService.saveUserNumber(token: "")
-        //KeychainService.saveUserPassword(token: "")
     }
     
     override func didReceiveMemoryWarning() {
