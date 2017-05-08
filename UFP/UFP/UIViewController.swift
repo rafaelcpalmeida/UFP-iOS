@@ -3,7 +3,8 @@
 //  UFP
 //
 //  Created by Rafael Almeida on 08/05/17.
-//  Copyright © 2017 Rafael Almeida. All rights reserved.
+//  Copyright © 2015 Shrikar Archak. All rights reserved.
+//  http://shrikar.com/ios-swift-tutorial-uipageviewcontroller-as-user-onboarding-tool/
 //
 
 import Foundation
