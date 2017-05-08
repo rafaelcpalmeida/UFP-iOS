@@ -103,13 +103,12 @@
                         <outlet property="password" destination="p9Z-CA-RIQ" id="eCa-qK-3Mm"/>
                         <outlet property="touch" destination="m7S-j9-DC1" id="9YK-gn-jzJ"/>
                         <outlet property="userNumber" destination="uqi-eK-SF7" id="2mQ-H9-7Mv"/>
-                        <segue destination="a4f-DT-zva" kind="show" identifier="loginSeguee" id="rwr-7b-vT8"/>
                         <segue destination="rvp-ci-Wf2" kind="show" identifier="loginSegue" id="jUw-yc-mcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="30"/>
+            <point key="canvasLocation" x="-718" y="36"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0Sl-yP-sfi">
@@ -142,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6W7-e7-fJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-128" y="836"/>
+            <point key="canvasLocation" x="195" y="36"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CPC-Rh-fzK">
@@ -150,7 +149,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="a4f-DT-zva" customClass="PageViewController" customModule="UFP" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hU-qB-nA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="364"/>
+            <point key="canvasLocation" x="999" y="36"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="uMf-Ew-5e1">
@@ -275,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6e-Xj-Haw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="-304.22535211267603"/>
+            <point key="canvasLocation" x="-718" y="876"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cMj-eQ-LkA">
@@ -427,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjc-pV-YL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="-304"/>
+            <point key="canvasLocation" x="-71" y="876"/>
         </scene>
         <!--Assiduity View Controller-->
         <scene sceneID="yGy-ow-qvk">
@@ -504,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOD-eV-rUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903.125" y="-304.22535211267603"/>
+            <point key="canvasLocation" x="585" y="876"/>
         </scene>
         <!--Final Grades View Controller-->
         <scene sceneID="4Qu-EB-Czy">
@@ -591,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyx-90-SyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611.875" y="-304.22535211267603"/>
+            <point key="canvasLocation" x="1238" y="876"/>
         </scene>
         <!--Partial Grades View Controller-->
         <scene sceneID="qw3-tT-58Q">
@@ -658,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teo-Uf-wM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328" y="-304"/>
+            <point key="canvasLocation" x="1899" y="876"/>
         </scene>
         <!--Detailed Partial Grades View Controller-->
         <scene sceneID="Jsy-Ay-Rjm">
@@ -732,7 +731,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffi-V2-1Wk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4200" y="-304"/>
+            <point key="canvasLocation" x="2728" y="876"/>
         </scene>
     </scenes>
     <resources>
