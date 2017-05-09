@@ -130,6 +130,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="About" style="plain" id="jej-co-6k6">
                                             <connections>
                                                 <action selector="returnToPreviousView:" destination="7QF-vc-K5O" id="SIY-hi-mA8"/>
+                                                <segue destination="Szk-Gr-QBn" kind="showDetail" id="45g-Qc-R77"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -143,13 +144,106 @@
             </objects>
             <point key="canvasLocation" x="195" y="36"/>
         </scene>
+        <!--About View Controller-->
+        <scene sceneID="ahA-rh-58N">
+            <objects>
+                <viewController id="Szk-Gr-QBn" customClass="AboutViewController" customModule="UFP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VX2-iE-11X"/>
+                        <viewControllerLayoutGuide type="bottom" id="iqC-KL-EHJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sIy-ix-Jyc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoUFP" translatesAutoresizingMaskIntoConstraints="NO" id="JKl-AS-DRZ">
+                                <rect key="frame" x="102" y="140" width="117" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JKl-AS-DRZ" secondAttribute="height" multiplier="117:127" id="gQI-Zg-cek"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvu-xv-zvR">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Acerca" id="f6f-Hu-Rom">
+                                        <barButtonItem key="leftBarButtonItem" title="Anterior" id="Jcy-X3-PZb">
+                                            <connections>
+                                                <action selector="returnToBack:" destination="Szk-Gr-QBn" id="w6b-Sw-fQF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Sair" id="i9I-9Q-8es">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="yh7-hT-12G"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universidade Fernando Pessoa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWM-K3-srR">
+                                <rect key="frame" x="42" y="315" width="237" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versão 1.0 (39)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5h-SL-T0e">
+                                <rect key="frame" x="42" y="353" width="237" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.32365234374999996" green="0.32365234374999996" blue="0.32365234374999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017 © Rafael Almeida e contribuidores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-EU-DJn">
+                                <rect key="frame" x="17" y="470" width="287" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.32365234370000001" green="0.32365234370000001" blue="0.32365234370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feito com ♥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qib-yu-2Av">
+                                <rect key="frame" x="17" y="498" width="287" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.32365234370000001" green="0.32365234370000001" blue="0.32365234370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qib-yu-2Av" secondAttribute="trailing" id="6Jx-OY-2MQ"/>
+                            <constraint firstItem="iqC-KL-EHJ" firstAttribute="top" secondItem="Qib-yu-2Av" secondAttribute="bottom" constant="50" id="9eH-1s-iSD"/>
+                            <constraint firstItem="N5h-SL-T0e" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="26" id="Dbd-Ie-WjY"/>
+                            <constraint firstItem="Qib-yu-2Av" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="1" id="DsD-gc-rM2"/>
+                            <constraint firstItem="bWM-K3-srR" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="26" id="I2l-LK-UQn"/>
+                            <constraint firstItem="nKd-EU-DJn" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="1" id="NFk-Dl-FKR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bWM-K3-srR" secondAttribute="trailing" constant="25" id="P9h-Nj-QGm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qib-yu-2Av" secondAttribute="trailing" id="PIl-tD-8pO"/>
+                            <constraint firstItem="JKl-AS-DRZ" firstAttribute="top" secondItem="VX2-iE-11X" secondAttribute="bottom" constant="120" id="Sij-tz-YgK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nKd-EU-DJn" secondAttribute="trailing" id="T16-yM-hnU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JKl-AS-DRZ" secondAttribute="trailing" constant="85" id="bjR-DL-mCY"/>
+                            <constraint firstItem="N5h-SL-T0e" firstAttribute="top" secondItem="bWM-K3-srR" secondAttribute="bottom" constant="8" id="h7M-YC-W7j"/>
+                            <constraint firstItem="Qib-yu-2Av" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="1" id="i0e-Jr-YN6"/>
+                            <constraint firstItem="bWM-K3-srR" firstAttribute="top" secondItem="JKl-AS-DRZ" secondAttribute="bottom" constant="48" id="i6X-HG-7AZ"/>
+                            <constraint firstItem="JKl-AS-DRZ" firstAttribute="leading" secondItem="sIy-ix-Jyc" secondAttribute="leadingMargin" constant="86" id="wmv-Q6-QMY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N5h-SL-T0e" secondAttribute="trailing" constant="25" id="yLj-GJ-EuA"/>
+                            <constraint firstItem="Qib-yu-2Av" firstAttribute="top" secondItem="nKd-EU-DJn" secondAttribute="bottom" constant="8" id="z6H-ry-cBb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="nKd-EU-DJn" id="qaF-QQ-Xkn"/>
+                        <outlet property="heartLabel" destination="Qib-yu-2Av" id="eif-Z0-W9O"/>
+                        <outlet property="ufpLabel" destination="bWM-K3-srR" id="J62-ds-er3"/>
+                        <outlet property="versionLabel" destination="N5h-SL-T0e" id="tdK-Ps-ktb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oxy-Qh-dQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.75" y="34.859154929577464"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="CPC-Rh-fzK">
             <objects>
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="a4f-DT-zva" customClass="PageViewController" customModule="UFP" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hU-qB-nA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="36"/>
+            <point key="canvasLocation" x="1785" y="36"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="uMf-Ew-5e1">

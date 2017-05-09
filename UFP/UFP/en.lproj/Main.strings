@@ -82,3 +82,12 @@
 
 /* Class = "UILabel"; text = "Sala 108 - 18:00 às 20:00"; ObjectID = "zUg-lu-kNY"; */
 "zUg-lu-kNY.text" = "Sala 108 - 18:00 às 20:00";
+
+/* Class = "UIBarButtonItem"; title = "Sair"; ObjectID = "i9I-9Q-8es"; */
+"i9I-9Q-8es.title" = "Logout";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "Jcy-X3-PZb"; */
+"Jcy-X3-PZb.title" = "Return";
+
+/* Class = "UINavigationItem"; title = "Acerca"; ObjectID = "f6f-Hu-Rom"; */
+"f6f-Hu-Rom.title" = "About";
