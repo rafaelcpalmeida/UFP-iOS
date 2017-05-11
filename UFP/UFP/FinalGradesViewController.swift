@@ -19,7 +19,6 @@ class FinalGradesViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var gradesTable: UITableView!
-    @IBOutlet weak var cellLabel: UILabel!
     
     let apiController = APIController()
     let tableCellIdentifier = "tableCell"
