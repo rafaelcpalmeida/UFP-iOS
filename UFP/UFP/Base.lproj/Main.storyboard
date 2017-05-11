@@ -127,6 +127,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="UFP" id="6vG-Ou-WfU">
+                                        <barButtonItem key="leftBarButtonItem" image="Home" style="plain" id="g0b-rN-GfY">
+                                            <connections>
+                                                <action selector="goToHome:" destination="rvp-ci-Wf2" id="GRw-mh-W5C"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="About" style="plain" id="jej-co-6k6">
                                             <connections>
                                                 <action selector="returnToPreviousView:" destination="7QF-vc-K5O" id="SIY-hi-mA8"/>
@@ -830,6 +835,7 @@
     </scenes>
     <resources>
         <image name="About" width="32" height="32"/>
+        <image name="Home" width="32" height="32"/>
         <image name="LogoUFP" width="450" height="600"/>
         <image name="MB" width="100" height="117"/>
         <image name="Touch" width="138" height="137"/>

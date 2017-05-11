@@ -14,7 +14,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     let pageControl = UIPageControl.appearance()
     
-    lazy var VCArr: [UIViewController] = {
+    public lazy var VCArr: [UIViewController] = {
         return [self.VCInstance(name: "schedule"),
                 self.VCInstance(name: "atm"),
                 self.VCInstance(name: "finalGrades"),
@@ -101,6 +101,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
         
         return firstViewControllerIndex
+    }
+    
+    public func getToHome() {
+        if let firstVC = VCArr.first {
+            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
     }
     
 }
