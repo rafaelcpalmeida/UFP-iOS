@@ -38,7 +38,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 for (keyLevel, data) in json["message"] {
                     self.queueStatus.append(Queue(service: keyLevel, number: data["number"].stringValue, description: data["desc"].stringValue, waiting: data["waiting"].stringValue, lastUpdate: data["last_update"].stringValue))
                 }
-                print(self.queueStatus)
             } else {
             }
             
