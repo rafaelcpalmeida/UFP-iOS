@@ -18,6 +18,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let apiController = APIController()
     let tableCellIdentifier = "tableCell"
+    let deviceTimeZone = TimeZone.init(identifier: TimeZone.current.description.replacingOccurrences(of: " (current)", with: ""))
+    let deviceCalendar = Calendar.current
     
     fileprivate weak var calendar: FSCalendar!
     
@@ -42,7 +44,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
                     for (_, dayClass) in json {
-                        self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                        self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, date: self.dateFormatter.string(from: todayDate), startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
                     }
                 }
                 
@@ -81,8 +83,27 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let data = classes[indexPath.row]
         
-        cell.textLabel?.text = data.name
-        cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@", comment: ""), data.room, data.startTime, data.endTime)
+        if (deviceTimeZone?.description) != nil {
+            if (deviceTimeZone!.description.replacingOccurrences(of: " (current)", with: "") != "Europe/Lisbon") {
+                if let classStart = self.dateFormatterWithHours.date(from: "\(data.date) \(data.startTime)") {
+                    _ = Int(deviceTimeZone!.secondsFromGMT(for: classStart))
+                    
+                    if let classEnd = self.dateFormatterWithHours.date(from: "\(data.date) \(data.endTime)") {
+                        _ = Int(deviceTimeZone!.secondsFromGMT(for: classEnd))
+                        
+                        let startingTime = String(format: "%02d:%02d", deviceCalendar.component(.hour, from: classStart), deviceCalendar.component(.minute, from: classStart))
+                        
+                        let endingTime = String(format: "%02d:%02d", deviceCalendar.component(.hour, from: classEnd), deviceCalendar.component(.minute, from: classEnd))
+                        
+                        cell.textLabel?.text = data.name
+                        cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@ (GMT %@ to %@)", comment: ""), data.room, startingTime, endingTime, data.startTime, data.endTime)
+                    }
+                }
+            } else {
+                cell.textLabel?.text = data.name
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@", comment: ""), data.room, data.startTime, data.endTime)
+            }
+        }
         
         return cell
     }
@@ -90,6 +111,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
+    fileprivate lazy var dateFormatterWithHours: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.init(abbreviation: "GMT")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return formatter
     }()
     
@@ -109,7 +137,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if let json = self.jsonData[self.dateFormatter.string(from: date)] {
             for (_, dayClass) in json {
-                self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, date: self.dateFormatter.string(from: date), startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
             }
         }
         

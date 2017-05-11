@@ -11,6 +11,7 @@ import Foundation
 struct Class {
     var name: String
     var room: String
+    var date: String
     var startTime: String
     var endTime: String
 }
