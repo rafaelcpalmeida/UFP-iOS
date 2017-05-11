@@ -91,3 +91,6 @@
 
 /* Class = "UINavigationItem"; title = "Acerca"; ObjectID = "f6f-Hu-Rom"; */
 "f6f-Hu-Rom.title" = "Acerca";
+
+/* Class = "UINavigationItem"; title = "Acerca"; ObjectID = "CGR-lX-bGM"; */
+"CGR-lX-bGM.title" = "Senhas";

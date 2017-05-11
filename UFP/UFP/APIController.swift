@@ -47,6 +47,12 @@ class APIController {
         
         makeRequest("grades/detailed", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    open func getQueueStatus(completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = [:]
+        
+        makeRequest("queue", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     fileprivate func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {

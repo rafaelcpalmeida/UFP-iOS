@@ -36,6 +36,8 @@
 		26CDE8C71E7B3E5C0031B74B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */; };
 		26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDE8C81E7B573D0031B74B /* APICredentials.swift */; };
 		26E4E5381EC133E700DA4015 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E4E5371EC133E700DA4015 /* AboutViewController.swift */; };
+		26E8F3DE1EC4F7E50065CB0F /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8F3DD1EC4F7E50065CB0F /* QueueViewController.swift */; };
+		26E8F3E01EC4FE030065CB0F /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8F3DF1EC4FE030065CB0F /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +90,8 @@
 		26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		26CDE8C81E7B573D0031B74B /* APICredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentials.swift; sourceTree = "<group>"; };
 		26E4E5371EC133E700DA4015 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		26E8F3DD1EC4F7E50065CB0F /* QueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
+		26E8F3DF1EC4FE030065CB0F /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 				2611BB811E8B3A0700F57F3A /* FinalGrades.swift */,
 				267B1D9C1EA17D8B00167116 /* PartialGrades.swift */,
 				266D12E01E889DAB006DFB9B /* Subject.swift */,
+				26E8F3DF1EC4FE030065CB0F /* Queue.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				267B1D981E9EE95C00167116 /* DetailedPartialGradesViewController.swift */,
 				2611BB7F1E89DCA700F57F3A /* FinalGradesViewController.swift */,
 				269D902E1E774CF000E1D26D /* LoginViewController.swift */,
+				26E8F3DD1EC4F7E50065CB0F /* QueueViewController.swift */,
 				26CDE8C61E7B3E5C0031B74B /* ScheduleViewController.swift */,
 				2611BB831E8C610800F57F3A /* PageViewController.swift */,
 				2611BB851E8D786500F57F3A /* PartialGradesViewController.swift */,
@@ -281,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E8F3DE1EC4F7E50065CB0F /* QueueViewController.swift in Sources */,
 				2611BB861E8D786500F57F3A /* PartialGradesViewController.swift in Sources */,
 				267B1D9D1EA17D8B00167116 /* PartialGrades.swift in Sources */,
 				2611BB801E89DCA700F57F3A /* FinalGradesViewController.swift in Sources */,
@@ -295,6 +302,7 @@
 				266D12DF1E889874006DFB9B /* AssiduityViewController.swift in Sources */,
 				26E4E5381EC133E700DA4015 /* AboutViewController.swift in Sources */,
 				2611BB841E8C610800F57F3A /* PageViewController.swift in Sources */,
+				26E8F3E01EC4FE030065CB0F /* Queue.swift in Sources */,
 				26CDE8C91E7B573D0031B74B /* APICredentials.swift in Sources */,
 				269D902D1E774CF000E1D26D /* AppDelegate.swift in Sources */,
 				266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */,
