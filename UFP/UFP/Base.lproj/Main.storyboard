@@ -937,7 +937,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="NSs-h9-WgJ" id="1gM-ze-phc"/>
-                        <outlet property="gradesTable" destination="qrU-yp-oRh" id="Qsl-ts-Eks"/>
+                        <outlet property="queueTable" destination="qrU-yp-oRh" id="BWH-Qa-MkV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7C-gi-Ey9" userLabel="First Responder" sceneMemberID="firstResponder"/>
