@@ -25,6 +25,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     let tableCellIdentifier = "tableCell"
     
     var queueStatus = [Queue]()
+    var timer = Timer()
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -42,6 +43,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.queueTable.addSubview(self.refreshControl)
         
         fetchNewData()
+        
+        Timer.scheduledTimer(timeInterval: 180, target: self, selector: #selector(self.fetchNewData), userInfo: nil, repeats: true)
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
