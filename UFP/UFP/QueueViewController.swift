@@ -48,8 +48,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
-        self.queueStatus.removeAll()
-        
         fetchNewData(updated: true)
     }
     
@@ -78,6 +76,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func fetchNewData(updated: Bool = false) {
+        self.queueStatus.removeAll()
+        
         apiController.getQueueStatus(completionHandler: { (json, error) in
             self.activityIndicator.stopAnimating()
             if(json["status"] == "Ok") {
