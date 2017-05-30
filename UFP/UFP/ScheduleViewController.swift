@@ -23,11 +23,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     fileprivate weak var calendar: FSCalendar!
     
-    var classes = [Class]()
+    var events = [Event]()
     var jsonData = [String: JSON]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var noClasses = false
         
         scheduleTable.delegate = self
         scheduleTable.dataSource = self
@@ -40,11 +42,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.jsonData[key] = data
                 }
                 
+                print (self.jsonData)
+                
                 let todayDate = Date()
                 
                 if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
                     for (_, dayClass) in json {
-                        self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, date: self.dateFormatter.string(from: todayDate), startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+                        self.events.append(Event(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, date: self.dateFormatter.string(from: todayDate), startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
                     }
                 }
                 
@@ -58,7 +62,47 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.viewCalendar.isHidden = false
                 self.scheduleTable.isHidden = false
             } else {
-                self.noScheduleInfo.isHidden = false
+                noClasses = true
+            }
+        })
+        
+        apiController.getUserExams(APICredentials.sharedInstance.apiToken!, completionHandler: { (json, error) in
+            if(json["status"] == "Ok") {
+                for (_, data) in json["message"] {
+                    for (date, info) in data {
+                        self.jsonData[date] = info
+                    }
+                }
+                
+                let todayDate = Date()
+                
+                if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {
+                    for (_, dayExam) in json {
+                        var room: String = ""
+                        
+                        /* must find a most inteligent way to do this!!! */
+                        for (value) in dayExam["room"].arrayValue {
+                            room.append("\(value) & ")
+                        }
+                        
+                        self.events.append(Event(name: dayExam["subject"].stringValue + " - " + dayExam["typology"].stringValue, room: String(room.characters.dropLast(3)), date: self.dateFormatter.string(from: todayDate), startTime: dayExam["time"].stringValue, endTime: ""))
+                    }
+                }
+                
+                self.calendar.scrollDirection = FSCalendarScrollDirection.vertical
+                
+                DispatchQueue.main.async(execute: {
+                    self.scheduleTable.reloadData()
+                    self.calendar.reloadData()
+                })
+                
+                
+                self.viewCalendar.isHidden = false
+                self.scheduleTable.isHidden = false
+            } else {
+                if (noClasses) {
+                    self.noScheduleInfo.isHidden = false
+                }
             }
         })
         
@@ -75,33 +119,43 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return classes.count
+        return events.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath)
         
-        let data = classes[indexPath.row]
+        let data = events[indexPath.row]
         
         if (deviceTimeZone?.description) != nil {
             if (deviceTimeZone!.description.replacingOccurrences(of: " (current)", with: "") != "Europe/Lisbon") {
                 if let classStart = self.dateFormatterWithHours.date(from: "\(data.date) \(data.startTime)") {
                     _ = Int(deviceTimeZone!.secondsFromGMT(for: classStart))
                     
+                    cell.textLabel?.text = data.name
+                    
+                    let startingTime = String(format: "%02d:%02d", deviceCalendar.component(.hour, from: classStart), deviceCalendar.component(.minute, from: classStart))
+                    
                     if let classEnd = self.dateFormatterWithHours.date(from: "\(data.date) \(data.endTime)") {
                         _ = Int(deviceTimeZone!.secondsFromGMT(for: classEnd))
                         
-                        let startingTime = String(format: "%02d:%02d", deviceCalendar.component(.hour, from: classStart), deviceCalendar.component(.minute, from: classStart))
-                        
                         let endingTime = String(format: "%02d:%02d", deviceCalendar.component(.hour, from: classEnd), deviceCalendar.component(.minute, from: classEnd))
                         
-                        cell.textLabel?.text = data.name
                         cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@ (GMT %@ to %@)", comment: ""), data.room, startingTime, endingTime, data.startTime, data.endTime)
+                    }
+                    
+                    if (data.endTime == "") {
+                        cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ (GMT %@)", comment: ""), data.room, startingTime, data.startTime)
                     }
                 }
             } else {
                 cell.textLabel?.text = data.name
-                cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@", comment: ""), data.room, data.startTime, data.endTime)
+                
+                if (data.endTime != "") {
+                    cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@ to %@", comment: ""), data.room, data.startTime, data.endTime)
+                } else {
+                    cell.detailTextLabel?.text = String(format: NSLocalizedString("Room %@ - from %@", comment: ""), data.room, data.startTime)
+                }
             }
         }
         
@@ -133,11 +187,23 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             calendar.setCurrentPage(date, animated: true)
         }
         
-        self.classes.removeAll()
+        self.events.removeAll()
         
         if let json = self.jsonData[self.dateFormatter.string(from: date)] {
-            for (_, dayClass) in json {
-                self.classes.append(Class(name: dayClass["unidade"].stringValue, room: dayClass["sala"].stringValue, date: self.dateFormatter.string(from: date), startTime: dayClass["inicio"].stringValue, endTime: dayClass["termo"].stringValue))
+            for (_, event) in json {
+                /* To whom find this code: please forgive me for this nonsense */
+                if (!event["termo"].exists()) {
+                    var room: String = ""
+                    
+                    /* must find a most inteligent way to do this!!! */
+                    for (value) in event["room"].arrayValue {
+                        room.append("\(value) & ")
+                    }
+                    
+                    self.events.append(Event(name: event["subject"].stringValue + " - " + event["typology"].stringValue, room: String(room.characters.dropLast(3)), date: self.dateFormatter.string(from: date), startTime: event["time"].stringValue, endTime: ""))
+                } else {
+                    self.events.append(Event(name: event["unidade"].stringValue, room: event["sala"].stringValue, date: self.dateFormatter.string(from: date), startTime: event["inicio"].stringValue, endTime: event["termo"].stringValue))
+                }
             }
         }
         

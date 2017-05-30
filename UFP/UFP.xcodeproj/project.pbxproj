@@ -18,7 +18,7 @@
 		266700441EA29683008D3BD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266700461EA29683008D3BD2 /* Localizable.strings */; };
 		266D12C61E869CD8006DFB9B /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; };
 		266D12C71E869CD8006DFB9B /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D12C51E869CD8006DFB9B /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Class.swift */; };
+		266D12CD1E86EEA0006DFB9B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12CC1E86EEA0006DFB9B /* Event.swift */; };
 		266D12D91E87F806006DFB9B /* ATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12D81E87F806006DFB9B /* ATMViewController.swift */; };
 		266D12DF1E889874006DFB9B /* AssiduityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12DE1E889874006DFB9B /* AssiduityViewController.swift */; };
 		266D12E11E889DAB006DFB9B /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D12E01E889DAB006DFB9B /* Subject.swift */; };
@@ -68,7 +68,7 @@
 		2667004B1EA2BCDA008D3BD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		266D12C51E869CD8006DFB9B /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = UFP/Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		266D12CB1E86A102006DFB9B /* UFP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFP-Bridging-Header.h"; sourceTree = "<group>"; };
-		266D12CC1E86EEA0006DFB9B /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		266D12CC1E86EEA0006DFB9B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		266D12D81E87F806006DFB9B /* ATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMViewController.swift; sourceTree = "<group>"; };
 		266D12DE1E889874006DFB9B /* AssiduityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssiduityViewController.swift; sourceTree = "<group>"; };
 		266D12E01E889DAB006DFB9B /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 			children = (
 				269D902C1E774CF000E1D26D /* AppDelegate.swift */,
 				26CDE8C81E7B573D0031B74B /* APICredentials.swift */,
-				266D12CC1E86EEA0006DFB9B /* Class.swift */,
+				266D12CC1E86EEA0006DFB9B /* Event.swift */,
 				2611BB811E8B3A0700F57F3A /* FinalGrades.swift */,
 				267B1D9C1EA17D8B00167116 /* PartialGrades.swift */,
 				266D12E01E889DAB006DFB9B /* Subject.swift */,
@@ -295,7 +295,7 @@
 				266D12E11E889DAB006DFB9B /* Subject.swift in Sources */,
 				26CDE8C21E7B200A0031B74B /* APIController.swift in Sources */,
 				267B1D991E9EE95C00167116 /* DetailedPartialGradesViewController.swift in Sources */,
-				266D12CD1E86EEA0006DFB9B /* Class.swift in Sources */,
+				266D12CD1E86EEA0006DFB9B /* Event.swift in Sources */,
 				266148251EC0E6ED0028A5FA /* UIViewController.swift in Sources */,
 				2611BB821E8B3A0700F57F3A /* FinalGrades.swift in Sources */,
 				269D902F1E774CF000E1D26D /* LoginViewController.swift in Sources */,

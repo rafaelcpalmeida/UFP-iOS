@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Class {
+struct Event {
     var name: String
     var room: String
     var date: String

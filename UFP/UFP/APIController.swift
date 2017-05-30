@@ -24,6 +24,12 @@ class APIController {
         makeRequest("schedule", method: .get, params: params, completionHandler: completionHandler)
     }
     
+    open func getUserExams(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = ["token": token]
+        
+        makeRequest("exams", method: .get, params: params, completionHandler: completionHandler)
+    }
+    
     open func getUserPaymentDetails(_ token: String, completionHandler: @escaping (JSON, Error?) -> ()) {
         let params: Parameters = ["token": token]
         

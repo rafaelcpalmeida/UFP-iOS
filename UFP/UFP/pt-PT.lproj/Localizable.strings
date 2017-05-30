@@ -7,7 +7,9 @@
 */
 
 "Room %@ - from %@ to %@"="Sala %@ - %@ às %@";
+"Room %@ - from %@"="Sala %@ - %@";
 "Room %@ - from %@ to %@ (GMT %@ to %@)"="Sala %@ - %@ às %@ (GMT %@ às %@)";
+"Room %@ - from %@ (GMT %@)"="Sala %@ - %@ (GMT %@)";
 "Can be paid between %@ and %@"="Pagável entre %@ e %@";
 "University Fernando Pessoa - Multibanco payment details\n\n\nEntity: %@\nReference: %@\nValue: %@\n\n%@"="Universidade Fernando Pessoa - Dados para pagamento por Multibanco\n\n\nEntidade: %@\nReferência: %@\nValor: %@\n\n%@";
 "2017 © Rafael Almeida and contributors"="2017 © Rafael Almeida e contribuidores";
