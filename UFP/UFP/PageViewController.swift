@@ -20,7 +20,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                 self.VCInstance(name: "finalGrades"),
                 self.VCInstance(name: "partialGrades"),
                 self.VCInstance(name: "atm"),
-                self.VCInstance(name: "assiduity")]
+                self.VCInstance(name: "assiduity"),
+                self.VCInstance(name: "teachers")]
     }()
     
     private func VCInstance(name: String) -> UIViewController {

@@ -59,6 +59,12 @@ class APIController {
         
         makeRequest("queue", method: .get, params: params, completionHandler: completionHandler)
     }
+    
+    open func getTeachers(completionHandler: @escaping (JSON, Error?) -> ()) {
+        let params: Parameters = [:]
+        
+        makeRequest("teachers/all", method: .get, params: params, completionHandler: completionHandler)
+    }
 
     fileprivate func getBaseURL() -> String {
         if let path = Bundle.main.path(forResource: "Preferences", ofType: "plist") {
