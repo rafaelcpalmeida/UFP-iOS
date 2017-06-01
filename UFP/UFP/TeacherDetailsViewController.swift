@@ -7,42 +7,51 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class TeacherDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TeacherDetailsViewController: UIViewController {
     
-    @IBOutlet weak var gradesTable: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var attendanceField: UITextView!
+    @IBOutlet weak var lastUpdateLabel: UILabel!
     
-    let tableCellIdentifier = "tableCell"
-    var partialGrades: PartialGrades?
+    let apiController = APIController()
+    var teacherInitials: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /* To be completed */
-        gradesTable.delegate = self
-        gradesTable.dataSource = self
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath)
-        
-        if let grades = partialGrades {
-            let gradeDetails = Array(grades.grades)[indexPath.row]
+        apiController.getTeacherDetails(initials: teacherInitials) { (json, err) in
             
-            cell.textLabel?.text = gradeDetails.key
-            cell.detailTextLabel?.text = gradeDetails.value
+            if(json["status"] == "Ok") {
+                self.nameLabel.text = json["message"]["name"].stringValue
+                self.emailLabel.text = json["message"]["email"].stringValue
+                
+                self.attendanceField.text = ""
+                for (key, value) in json["message"]["schedule"] {                    
+                    self.attendanceField.text.append(key + "\n\n")
+                    
+                    for (date) in value {
+                        self.attendanceField.text.append(date.1.stringValue + "\n")
+                    }
+                    
+                    self.attendanceField.text.append("\n\n\n")
+                }
+                
+                self.lastUpdateLabel.text = String(format: NSLocalizedString("Last updated at %@", comment: ""), json["message"]["last_update"].stringValue)
+                
+                self.nameLabel.isHidden = false
+                self.emailLabel.isHidden = false
+                self.attendanceField.isHidden = false
+                if(json["message"]["last_update"].stringValue != "") {
+                    self.lastUpdateLabel.isHidden = false
+                }
+            } else {
+            }
+
         }
-        
-        return cell
     }
     
     @IBAction func returnToPreviousView(_ sender: Any) {

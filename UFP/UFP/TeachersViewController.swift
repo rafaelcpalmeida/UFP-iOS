@@ -78,10 +78,18 @@ class TeachersViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if let indexPath = teachersTable.indexPathForSelectedRow {
-            let detailVC = segue.destination as! DetailedPartialGradesViewController
-            //detailVC.partialGrades = self.partialGrades[headers[indexPath.section]]?[indexPath.row]
-        }*/
+        if let indexPath = teachersTable.indexPathForSelectedRow {
+            let detailVC = segue.destination as! TeacherDetailsViewController
+            let teacher: Teacher
+            
+            if searchController.isActive && searchController.searchBar.text != "" {
+                teacher = self.filteredTeachers[indexPath.row]
+            } else {
+                teacher = self.teachers[indexPath.row]
+            }
+            
+            detailVC.teacherInitials = teacher.identifier
+        }
     }
     
     func filterContentForSearchText(searchText: String) {

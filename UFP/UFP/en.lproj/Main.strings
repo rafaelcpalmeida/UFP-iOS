@@ -94,3 +94,9 @@
 
 /* Class = "UINavigationItem"; title = "Acerca"; ObjectID = "CGR-lX-bGM"; */
 "CGR-lX-bGM.title" = "Queue";
+
+/* Class = "UINavigationItem"; title = "Docentes"; ObjectID = "Xi5-3f-d38"; */
+"Xi5-3f-d38.title" = "Teachers";
+
+/* Class = "UINavigationItem"; title = "Contactos Docente"; ObjectID = "Jna-b2-SS7"; */
+"Jna-b2-SS7.title" = "Teacher Contacts";
