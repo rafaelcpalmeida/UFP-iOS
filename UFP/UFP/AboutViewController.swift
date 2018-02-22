@@ -42,11 +42,11 @@ class AboutViewController: UIViewController {
     }
     
     @objc func openLinkedIn() {
-        UIApplication.shared.openURL(URL(string: "https://www.linkedin.com/in/rafaelcpalmeida/")!)
+        UIApplication.shared.open(URL(string: "https://www.linkedin.com/in/rafaelcpalmeida/")!, options: [:], completionHandler: nil)
     }
     
     @objc func openGitHub() {
-        UIApplication.shared.openURL(URL(string: "https://github.com/rafaelcpalmeida/UFP-iOS")!)
+        UIApplication.shared.open(URL(string: "https://github.com/rafaelcpalmeida/UFP-iOS")!, options: [:], completionHandler: nil)
     }
     
 }
