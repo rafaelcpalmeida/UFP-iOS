@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.logo.isHidden = true
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0 {
                 self.logo.isHidden = false
@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func loginWithTouchID (tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func loginWithTouchID (tapGestureRecognizer: UITapGestureRecognizer) {
         context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Coloque o dedo para entrar") { (isSucessful, hasError) in
             if isSucessful {
                 DispatchQueue.main.asyncAfter(deadline: .now()) {

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F67a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -632,17 +633,17 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Egm-MY-iMa" id="H5h-GV-EkB">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Técnicas de Programação Estruturada para a Web" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyd-yl-yD3">
-                                                    <rect key="frame" x="8" y="16" width="236" height="21"/>
+                                                    <rect key="frame" x="15" y="19" width="229.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RY-Fk-uiT">
-                                                    <rect key="frame" x="252" y="16" width="28" height="21"/>
+                                                    <rect key="frame" x="252.5" y="19" width="20.5" height="15.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8RY-Fk-uiT" secondAttribute="height" multiplier="4:3" id="znx-tj-vhc"/>
                                                     </constraints>
@@ -860,11 +861,11 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9am-4g-i1I" id="RN4-dH-h2U">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="92.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serviço A - Ingresso-Regime Geral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ft9-cW-7D7">
-                                                    <rect key="frame" x="8" y="8" width="265" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="251" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ft9-cW-7D7" secondAttribute="height" multiplier="265:21" id="5Cf-Lc-goF"/>
                                                     </constraints>
@@ -873,13 +874,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha 109" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mX-Mi-u5d">
-                                                    <rect key="frame" x="8" y="37" width="151" height="21"/>
+                                                    <rect key="frame" x="15" y="39" width="137" height="17.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última atualização - 18:48:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-Hp-3AG">
-                                                    <rect key="frame" x="8" y="66.5" width="226" height="14"/>
+                                                    <rect key="frame" x="15" y="65" width="212" height="13"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="EdS-Hp-3AG" secondAttribute="height" multiplier="113:7" id="EpL-AQ-gUF"/>
                                                     </constraints>
@@ -888,7 +889,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 em espera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkL-4N-cNu">
-                                                    <rect key="frame" x="167" y="35" width="113" height="24.5"/>
+                                                    <rect key="frame" x="160" y="37" width="113" height="24.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lkL-4N-cNu" secondAttribute="height" multiplier="32:7" constant="1" id="T6u-iW-X8a"/>
                                                     </constraints>

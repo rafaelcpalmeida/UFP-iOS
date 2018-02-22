@@ -42,8 +42,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.jsonData[key] = data
                 }
                 
-                print (self.jsonData)
-                
                 let todayDate = Date()
                 
                 if let json = self.jsonData[self.dateFormatter.string(from: todayDate)] {

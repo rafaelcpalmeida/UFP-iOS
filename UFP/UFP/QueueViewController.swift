@@ -47,7 +47,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         Timer.scheduledTimer(timeInterval: 180, target: self, selector: #selector(self.fetchNewData), userInfo: nil, repeats: true)
     }
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         fetchNewData(updated: true)
     }
     
@@ -75,7 +75,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func fetchNewData(updated: Bool = false) {
+    @objc func fetchNewData(updated: Bool = false) {
         self.queueStatus.removeAll()
         
         apiController.getQueueStatus(completionHandler: { (json, error) in

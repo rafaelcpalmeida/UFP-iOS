@@ -41,11 +41,11 @@ class AboutViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func openLinkedIn() {
+    @objc func openLinkedIn() {
         UIApplication.shared.openURL(URL(string: "https://www.linkedin.com/in/rafaelcpalmeida/")!)
     }
     
-    func openGitHub() {
+    @objc func openGitHub() {
         UIApplication.shared.openURL(URL(string: "https://github.com/rafaelcpalmeida/UFP-iOS")!)
     }
     

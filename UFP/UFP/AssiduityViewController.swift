@@ -72,8 +72,8 @@ class AssiduityViewController: UIViewController, UITableViewDataSource, UITableV
                     color = UIColor(red: 0, green: 0.5373, blue: 0.0706, alpha: 1.0)
                 }
                 
-                let subjectType = NSAttributedString(string: type + " - ", attributes: [NSForegroundColorAttributeName : UIColor.black])
-                let subjectAssiduity = NSAttributedString(string: value, attributes: [NSForegroundColorAttributeName : color])
+                let subjectType = NSAttributedString(string: type + " - ", attributes: [NSAttributedStringKey.foregroundColor : UIColor.black])
+                let subjectAssiduity = NSAttributedString(string: value, attributes: [NSAttributedStringKey.foregroundColor : color])
                 
                 combination.append(subjectType)
                 combination.append(subjectAssiduity)
