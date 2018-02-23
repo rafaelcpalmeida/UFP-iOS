@@ -14,7 +14,7 @@ In order to compile and run the app in your own device:
 - [FSCalendar]
 
 # Known BUGs
-None.
+There are some bugs regarding layout on iOS 11, but nothing that should prevent the app from working.
 
 # License
 
